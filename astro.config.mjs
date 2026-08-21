@@ -7,5 +7,5 @@ export default defineConfig({
   integrations: [react(), sitemap()],
   security: { checkOrigin: false },
   image: { domains: ['://wixstatic.com'] },
-  output: 'server'
+  output: 'static'
 });
