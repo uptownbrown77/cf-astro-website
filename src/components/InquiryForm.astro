@@ -1,0 +1,14 @@
+---
+interface Props { waitlist?: boolean; }
+const { waitlist=false }=Astro.props;
+---
+<form class="panel form-grid" data-local-form>
+  <div class="field"><label for="firstName">First name</label><input id="firstName" name="firstName" autocomplete="given-name" required/></div>
+  <div class="field"><label for="lastName">Last name</label><input id="lastName" name="lastName" autocomplete="family-name" required/></div>
+  <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required/></div>
+  <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"/></div>
+  {waitlist && <><div class="field"><label for="experience">Cane Corso experience</label><select id="experience" name="experience"><option>First Cane Corso</option><option>Experienced owner</option><option>Breeder / working home</option></select></div><div class="field"><label for="timing">Preferred timing</label><select id="timing" name="timing"><option>Within 6 months</option><option>6–12 months</option><option>Future litter</option></select></div></>}
+  <div class="field full"><label for="message">{waitlist?'Tell us about your home and goals':'How can we help?'}</label><textarea id="message" name="message" required></textarea></div>
+  <div class="field full"><button class="button" type="submit">{waitlist?'Submit Waitlist Application':'Send Inquiry'}</button><p class="status-note" role="status" data-form-status>This local preview does not transmit data. Wix Forms will be connected after approval.</p></div>
+</form>
+<script>document.querySelectorAll('[data-local-form]').forEach(form=>form.addEventListener('submit',(e)=>{e.preventDefault();const status=form.querySelector('[data-form-status]');if(status)status.textContent='Preview confirmed — the form is ready for Wix Forms connection.';}));</script>

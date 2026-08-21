@@ -1,0 +1,20 @@
+---
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+<a class:list={['brand-mark', { compact }]} href="/" aria-label="Custos Fidelis home">
+  <img class="crest" src="/images/custos-fidelis-logo-color-restored.png" alt="" width="1024" height="1536" />
+  <span class="brand-copy">
+    <strong>Custos Fidelis</strong>
+    <small>Cane Corso</small>
+  </span>
+</a>
+
+<style>
+  .brand-mark{display:flex;align-items:center;gap:1rem;color:var(--gold-pale);text-decoration:none;min-width:max-content}
+  .crest{width:88px;height:100px;object-fit:contain;object-position:center;mix-blend-mode:normal;filter:brightness(1.08) contrast(1.08) drop-shadow(0 4px 8px #000)}
+  .brand-copy{display:grid;text-transform:uppercase}.brand-copy strong{font:600 1.24rem/1 var(--font-display);letter-spacing:.16em;text-shadow:0 2px #000,0 0 8px #c88a2c42}.brand-copy small{margin-top:.42rem;color:var(--gold);font:600 .7rem/1 var(--font-body);letter-spacing:.33em}
+  .compact .brand-copy{display:none}.compact .crest{width:70px;height:82px}
+  @media (max-width:1100px){.crest{width:76px;height:86px}}
+  @media (max-width:720px){.brand-mark{gap:.7rem}.brand-copy strong{font-size:.92rem}.brand-copy small{font-size:.56rem}.crest{width:68px;height:76px}}
+</style>

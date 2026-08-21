@@ -1,0 +1,7 @@
+---
+import HeraldicIcon from './HeraldicIcon.astro';
+interface Props { eyebrow?: string; title: string; intro: string; }
+const { eyebrow, title, intro } = Astro.props;
+---
+<section class="page-hero"><div>{eyebrow && <span class="eyebrow">{eyebrow}</span>}<h1 class="display-title">{title}</h1><div class="gold-rule"><i></i></div><p>{intro}</p><div class="hero-medallions"><HeraldicIcon name="eagle" label="Roman legion heritage"/><HeraldicIcon name="champion" label="Cane Corso guardian"/><HeraldicIcon name="paw" label="Disciplined loyalty"/></div></div></section>
+<style>.hero-medallions{display:flex;align-items:center;gap:1rem;margin-top:1.5rem}.hero-medallions :global(.heraldic-asset){width:88px}.hero-medallions :global(.heraldic-asset:nth-child(2)){width:108px;transform:translateY(-5px)}@media(max-width:600px){.hero-medallions{gap:.35rem}.hero-medallions :global(.heraldic-asset){width:66px}.hero-medallions :global(.heraldic-asset:nth-child(2)){width:78px}}</style>

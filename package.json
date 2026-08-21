@@ -1,0 +1,25 @@
+{
+  "name": "custos-fidelis-cane-corso",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/react": "^6.0.4",
+    "@astrojs/sitemap": "^3.4.1",
+    "@wix/astro": "^2.67.0",
+    "@wix/astro-pages": "^2.0.4",
+    "@wix/cloud-provider-fetch-adapter": "^1.0.5",
+    "astro": "^5.12.9",
+    "lucide-astro": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@wix/cli": "^1.1.238"
+  }
+}

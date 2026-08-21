@@ -1,0 +1,17 @@
+---
+import { Instagram, Mail } from 'lucide-astro';
+import BrandMark from './BrandMark.astro';
+---
+<footer class="site-footer">
+  <div class="footer-motto"><span></span><strong>Strength. Loyalty. Legacy.</strong><span></span></div>
+  <div class="footer-grid">
+    <a href="https://instagram.com/custos_fidelis_cane_corsos" aria-label="Instagram"><Instagram size={20}/> @custos_fidelis_cane_corsos</a>
+    <BrandMark compact />
+    <a href="mailto:contact@custosfideliscanecorso.com"><Mail size={20}/> contact@custosfideliscanecorso.com</a>
+  </div>
+  <p>© {new Date().getFullYear()} Custos Fidelis Cane Corso. All rights reserved.</p>
+</footer>
+<style>
+  .site-footer{padding:2rem clamp(1rem,4vw,4rem);border-top:1px solid #6d501a;background:#030303}.footer-motto{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;color:var(--gold);letter-spacing:.28em;text-transform:uppercase;font:500 clamp(.75rem,2vw,1.1rem)/1 var(--font-display)}.footer-motto span{height:1px;background:linear-gradient(90deg,transparent,var(--gold))}.footer-motto span:last-child{background:linear-gradient(90deg,var(--gold),transparent)}.footer-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1.5rem;margin-top:1.8rem}.footer-grid>a{display:flex;gap:.65rem;align-items:center;color:var(--gold-pale);text-decoration:none;font-size:.78rem}.footer-grid>a:last-child{justify-self:end}.site-footer p{text-align:center;color:#736b5e;font-size:.68rem;margin:1.8rem 0 0}
+  @media(max-width:760px){.footer-motto{letter-spacing:.16em}.footer-grid{grid-template-columns:1fr;justify-items:center}.footer-grid>a:last-child{justify-self:center}.footer-grid>a{font-size:.7rem;overflow-wrap:anywhere;text-align:center}}
+</style>

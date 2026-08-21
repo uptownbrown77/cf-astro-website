@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeraldicIcon from '../components/HeraldicIcon.astro';
+
+const lines = [
+  {
+    name: 'Centurion Line',
+    image: '/images/bloodlines/centurion-line.png',
+    text: 'Devoted by nature, stable in temperament, and supported by proven AKC Champion and imported bloodlines from Europe and South America.',
+  },
+  {
+    name: 'Praetorian Line',
+    image: '/images/bloodlines/praetorian-line.png',
+    text: 'A guardian-focused line shaped around devotion, stable temperament, advanced obedience, and confident protection ability.',
+  },
+  {
+    name: 'Imperium Line',
+    image: '/images/bloodlines/imperium-line.png',
+    text: 'A powerful line developed for devotion, balanced temperament, advanced obedience, and purposeful protection work.',
+  },
+];
+---
+
+<Layout title="Bloodlines">
+  <div class="bloodlines-page-tagline">Built to protect. Bred to belong.</div>
+  <section class="content-section section-shell bloodline-intro">
+    <h2 class="section-title">The Custos Fidelis Lines</h2>
+    <p class="prose">Three purposeful lines. One standard: heavy bone, sound movement, stable temperament, and capable protection.</p>
+  </section>
+
+  <section class="section-shell line-grid" aria-label="Custos Fidelis bloodlines">
+    {lines.map((line, index) =>
+      <article class="line-card gold-frame">
+        <div class="poster-wrap">
+          <img src={line.image} alt={`${line.name} at Custos Fidelis Cane Corso`} width="1024" height="1536" loading={index === 0 ? 'eager' : 'lazy'} />
+        </div>
+        <div class="line-copy">
+          <span class="eyebrow">Custos Fidelis</span>
+          <h2>{line.name}</h2>
+          <p>{line.text}</p>
+        </div>
+      </article>
+    )}
+  </section>
+
+  <section class="content-section section-shell">
+    <div class="grid-3">
+      <article class="panel"><div class="panel-icon"><HeraldicIcon name="eagle" label="Worldwide heritage" /></div><h2>Worldwide Heritage</h2><p>Champion domestic and proven imported foundations.</p></article>
+      <article class="panel"><div class="panel-icon"><HeraldicIcon name="science" label="Science-based selection" /></div><h2>Science-Based Selection</h2><p>Health, structure, and temperament guide every pairing.</p></article>
+      <article class="panel"><div class="panel-icon"><HeraldicIcon name="champion" label="Preserve and improve" /></div><h2>Preserve & Improve</h2><p>Stronger structure. Stable character. Greater capability.</p></article>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .bloodlines-page-tagline{width:min(calc(100% - 2rem),var(--content));margin:.85rem auto 0;color:var(--gold-pale);text-align:center;text-transform:uppercase;letter-spacing:.22em;font:600 clamp(.9rem,1.45vw,1.12rem)/1.3 var(--font-display)}
+  .bloodline-intro{padding-top:clamp(2rem,4vw,3.25rem);padding-bottom:2.5rem;text-align:center}.bloodline-intro>.section-title::before,.bloodline-intro>.section-title::after{content:none!important;display:none!important}.bloodline-intro>.prose{margin:1rem auto 0}.line-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;align-items:start}.line-card{overflow:hidden;background:#050505}.poster-wrap{position:relative;aspect-ratio:2/3;background:#080706}.poster-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 30px #000}.poster-wrap img{width:100%;height:100%;object-fit:contain}.line-copy{padding:1.4rem;background:linear-gradient(180deg,#151109,#050505);border-top:1px solid #6c4e19;text-align:center}.line-copy h2{margin:.15rem 0 .65rem;color:var(--gold-pale);font:500 clamp(1.35rem,2.2vw,2rem)/1.15 var(--font-display);text-transform:uppercase}.line-copy p{margin:0;color:#c7beb1;font-size:.85rem}
+  @media(max-width:950px){.line-grid{grid-template-columns:repeat(2,1fr)}.line-card:last-child{grid-column:1/-1;width:calc(50% - .5rem);justify-self:center}}
+  @media(max-width:620px){.line-grid{grid-template-columns:1fr}.line-card:last-child{grid-column:auto;width:auto}.line-copy p{font-size:.82rem}}
+</style>

@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeraldicIcon from '../components/HeraldicIcon.astro';
+import { ArrowRight } from 'lucide-astro';
+
+const litterSections = [
+  {
+    title: 'Available Litters',
+    image: '/images/litters/available-litters.png',
+    text: 'Current opportunities, parent information, birth dates, and availability.',
+    cta: 'Join the Waitlist',
+    href: '/join-waitlist',
+  },
+  {
+    title: 'Upcoming Litters',
+    image: '/images/litters/upcoming-litters.png',
+    text: 'Planned pairings selected to improve health, structure, temperament, and purpose.',
+    cta: 'Ask About Future Litters',
+    href: '/contact',
+  },
+  {
+    title: 'Previous Litters',
+    image: '/images/litters/previous-litters.png',
+    text: 'Past pairings and the dogs produced through purposeful selection.',
+    cta: 'Explore Our Dogs',
+    href: '/our-dogs',
+  },
+];
+
+const availablePuppies = [
+  { src: '/images/litters/available/grey-female-2-11-weeks.png', alt: 'Gray female Cane Corso puppy at eleven weeks' },
+  { src: '/images/litters/available/puppy-portrait-01.png', alt: 'Available Custos Fidelis Cane Corso puppy' },
+  { src: '/images/litters/available/black-male-white-patch-11-weeks.png', alt: 'Black male Cane Corso puppy with a white chest patch at eleven weeks' },
+  { src: '/images/litters/available/black-male-white-paws.png', alt: 'Black male Cane Corso puppy with white markings' },
+  { src: '/images/litters/available/puppy-portrait-02.png', alt: 'Available Custos Fidelis Cane Corso puppy' },
+  { src: '/images/litters/available/puppy-portrait-03.png', alt: 'Available Custos Fidelis Cane Corso puppy' },
+  { src: '/images/litters/available/grey-female-11-weeks.png', alt: 'Gray female Cane Corso puppy at eleven weeks' },
+  { src: '/images/litters/available/puppy-photo-04.jpg', alt: 'Available Custos Fidelis Cane Corso puppy' },
+  { src: '/images/litters/available/solid-black-male-10-weeks.png', alt: 'Solid black male Cane Corso puppy at ten weeks' },
+  { src: '/images/litters/available/solid-black-male-11-weeks.png', alt: 'Solid black male Cane Corso puppy at eleven weeks' },
+];
+
+const previousLitterPhotos = [
+  { src: '/images/litters/previous/previous-litter-01.jpg', alt: 'Custos Fidelis Cane Corso puppy from a previous litter' },
+  { src: '/images/litters/previous/previous-litter-02.jpg', alt: 'Custos Fidelis Cane Corso puppy from a previous litter' },
+  { src: '/images/litters/previous/previous-litter-03.jpg', alt: 'Custos Fidelis Cane Corso puppy from a previous litter' },
+  { src: '/images/litters/previous/previous-litter-04.jpeg', alt: 'Custos Fidelis Cane Corso puppy from a previous litter' },
+  { src: '/images/litters/previous/previous-litter-05.jpeg', alt: 'Custos Fidelis Cane Corso puppy from a previous litter' },
+  { src: '/images/litters/previous/previous-litter-06.jpeg', alt: 'Custos Fidelis Cane Corso puppy from a previous litter' },
+  { src: '/images/litters/previous/previous-litter-07.jpeg', alt: 'Custos Fidelis Cane Corso puppy from a previous litter' },
+  { src: '/images/litters/previous/previous-litter-08.jpeg', alt: 'Custos Fidelis Cane Corso puppy from a previous litter' },
+  { src: '/images/litters/previous/previous-litter-09.jpeg', alt: 'Custos Fidelis Cane Corso puppy from a previous litter' },
+  { src: '/images/litters/previous/previous-litter-10.jpeg', alt: 'Custos Fidelis Cane Corso puppy from a previous litter' },
+  { src: '/images/litters/previous/previous-litter-11.jpeg', alt: 'Custos Fidelis Cane Corso puppy from a previous litter' },
+  { src: '/images/litters/previous/previous-litter-12.jpeg', alt: 'Custos Fidelis Cane Corso puppy from a previous litter' },
+];
+---
+
+<Layout title="Litters">
+  <section class="section-shell litter-showcase" aria-label="Litter information">
+    {litterSections.map((section, index) =>
+          <article class:list={["litter-card", "gold-frame", { "litter-card--upcoming": index === 1 }]}>
+            <div class:list={["litter-art", { "litter-art--available": index === 0, "litter-art--upcoming": index === 1, "litter-art--previous": index === 2 }]}>
+              <img class="litter-poster" src={section.image} alt={`Custos Fidelis ${section.title} artwork`} width={index === 1 ? 1024 : 1536} height={index === 1 ? 1536 : 1024} loading={index === 0 ? 'eager' : 'lazy'} />
+          {index === 0 && (
+            <div class="available-photo-grid" aria-label="Available Cane Corso puppies">
+              {availablePuppies.map((puppy, puppyIndex) => (
+                <figure>
+                  <img
+                    src={puppy.src}
+                    alt={puppy.alt}
+                    width="800"
+                    height="800"
+                    loading={puppyIndex < 5 ? 'eager' : 'lazy'}
+                  />
+                </figure>
+              ))}
+            </div>
+          )}
+          {index === 2 && (
+            <div class="available-photo-grid" aria-label="Previous Custos Fidelis Cane Corso litter">
+              {previousLitterPhotos.slice(0, 10).map((photo, photoIndex) => (
+                <figure>
+                  <img src={photo.src} alt={photo.alt} width="800" height="800" loading={photoIndex < 5 ? 'eager' : 'lazy'} />
+                </figure>
+              ))}
+            </div>
+          )}
+        </div>
+        <div class="litter-copy">
+          <HeraldicIcon name={['paw','fortress','heritage'][index]} label={section.title}/>
+          <div><span class="eyebrow">Custos Fidelis Cane Corso</span><h2>{section.title}</h2></div>
+          <p>{section.text}</p>
+          <a class="button" href={section.href}>{section.cta}<ArrowRight size={16}/></a>
+        </div>
+      </article>
+    )}
+  </section>
+
+  <section class="content-section section-shell waitlist-panel">
+    <article class="panel">
+      <h2 class="waitlist-title">Begin with the Waitlist</h2>
+      <p class="prose">Tell us your lifestyle, experience, protection needs, and preferred level of training.</p>
+      <a class="button" href="/join-waitlist">Join the Waitlist <ArrowRight size={16}/></a>
+    </article>
+  </section>
+</Layout>
+
+<style>
+  .litter-showcase{display:grid;gap:1.25rem}.litter-card{overflow:hidden;background:#050505}.litter-art{position:relative;isolation:isolate;aspect-ratio:3/2;background:#060605}.litter-art::after{content:"";position:absolute;z-index:20;inset:0;pointer-events:none;box-shadow:inset 0 0 45px #000}.litter-poster{position:relative;z-index:0;width:100%;height:100%;object-fit:contain}.litter-art--available{background:#060605 url('/images/litters/available-litters.png') center/contain no-repeat}.litter-art--previous{background:#060605 url('/images/litters/previous-litters.png') center/contain no-repeat}.litter-art--available>.litter-poster,.litter-art--previous>.litter-poster{visibility:hidden}.available-photo-grid{position:absolute;z-index:10;left:2.35%;right:2.35%;top:32.1%;bottom:7.45%;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));column-gap:.92%;row-gap:1.8%;overflow:hidden}.available-photo-grid figure{position:relative;z-index:11;min-width:0;min-height:0;margin:0;overflow:hidden;background:#050505;box-shadow:inset 0 0 0 1px #b7771f}.available-photo-grid img{position:absolute;z-index:12;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:1;visibility:visible;filter:contrast(1.04) saturate(.94)}.litter-copy{display:grid;grid-template-columns:105px minmax(240px,.8fr) 1.25fr auto;gap:1.5rem;align-items:center;padding:1.8rem clamp(1.2rem,3vw,2.5rem);border-top:3px double var(--gold-bright);background:radial-gradient(circle at 5% 50%,#76501b45,transparent 22%),linear-gradient(90deg,#1d1509,#060606)}.litter-copy h2{margin:.15rem 0;color:var(--gold-pale);font:500 clamp(1.45rem,2.7vw,2.5rem)/1.1 var(--font-display);text-transform:uppercase}.litter-copy p{margin:0;max-width:680px;font-size:.85rem}.litter-copy .button{white-space:nowrap}.waitlist-panel{padding-top:1.25rem}.waitlist-panel .panel{display:grid;justify-items:center;gap:1rem;padding:clamp(1.75rem,4vw,3rem);text-align:center}.waitlist-title{margin:0;color:var(--gold-pale);font:500 clamp(1.75rem,4vw,3rem)/1.12 var(--font-display);text-transform:uppercase}.waitlist-panel .prose{max-width:720px;margin:0}.waitlist-panel .button{margin-top:.25rem}
+  .litter-card--upcoming{width:min(100%,820px);margin-inline:auto}
+  .litter-art--upcoming{aspect-ratio:2/3;background:#050504}
+  .litter-art--upcoming>.litter-poster{width:100%;height:100%;object-fit:contain;object-position:center}
+  .litter-copy :global(.site-heraldic-icon){--icon-size:100px}
+  @media(max-width:1050px){.litter-copy{grid-template-columns:95px 1fr 1fr}.litter-copy .button{grid-column:2/-1;justify-self:start}}
+  @media(max-width:620px){.litter-art{aspect-ratio:auto}.litter-art>img{height:auto}.available-photo-grid img{height:100%}.litter-copy{grid-template-columns:1fr;gap:.8rem;justify-items:center;text-align:center}.litter-copy .button{grid-column:auto;white-space:normal;justify-self:center}.litter-copy p{font-size:.8rem}}
+</style>
+<style>
+  @media(max-width:620px){.litter-art--upcoming{aspect-ratio:2/3}.litter-art--upcoming>img{height:100%}}
+</style>

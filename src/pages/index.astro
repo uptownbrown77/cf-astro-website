@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ArrowRight } from 'lucide-astro';
+import HeraldicAsset from '../components/HeraldicAsset.astro';
+import HeraldicIcon from '../components/HeraldicIcon.astro';
+import { pillars, featureCards, missionStatement } from '../data/site';
+---
+<Layout title="Home" description="Custos Fidelis Cane Corso — preserving and improving the ancient breed through heavy bone, sound structure, stable temperament, tailored training, and dependable protection.">
+  <section class="home-hero">
+    <div class="hero-content">
+      <h1 class="display-title"><span>Strength.</span><span>Loyalty.</span><span>Legacy.</span></h1>
+      <p class="hero-lead">Preserve the legacy. Improve every generation.</p>
+      <p>Heavy bone. Sound movement. Stable temperament. Dependable protection for modern life.</p>
+      <a class="button" href="/our-dogs">Explore Our Dogs <ArrowRight size={17}/></a>
+    </div>
+    <aside class="hero-seal" aria-label="Custos Fidelis Cane Corso crest"><img src="/images/custos-fidelis-logo-color-restored.png" alt="Custos Fidelis Cane Corso" width="1024" height="1536" /></aside>
+  </section>
+
+  <div class="section-shell home-stack">
+    <section class="video-stage video-stage-blank gold-frame" aria-label="Blank video placeholder"></section>
+
+    <section class="pillars gold-frame" aria-label="Our principles">
+      {pillars.map((pillar, index) => <article>
+        <div class="pillar-icon"><HeraldicIcon name={['heritage','eagle','guardian','paw'][index]} label={pillar.title}/></div>
+        <span class="roman-ribbon">Custos Fidelis</span><h2>{pillar.title}</h2><p>{pillar.text}</p>{index < pillars.length - 1 && <span class="divider"></span>}
+      </article>)}
+    </section>
+
+    <section class="feature-grid">
+      {featureCards.map((card, i) => <article class:list={['feature-card','gold-frame',card.className]}>
+        <div class="card-visual" aria-hidden="true"><HeraldicIcon name={['champion','paw','eagle'][i]} /></div>
+        <div class="card-body"><h2>{card.title}</h2><p>{card.text}</p><a class="button" href={card.href}>{card.cta}<ArrowRight size={16}/></a></div>
+      </article>)}
+    </section>
+
+    <section class="mission-banner gold-frame">
+      <div class="mission-crest"><img src="/images/custos-fidelis-logo-color-restored.png" alt="Custos Fidelis Cane Corso crest" width="1024" height="1536" /></div>
+      <div><span class="eyebrow">An ancient breed. A higher standard.</span><h2 class="section-title">Preserve & Improve</h2><p>{missionStatement}</p><a class="button" href="/our-mission">Our Mission <ArrowRight size={16}/></a></div>
+    </section>
+  </div>
+</Layout>
+
+<script>
+  document.querySelector('[data-play]')?.addEventListener('click', (event) => {
+    const stage = (event.currentTarget as HTMLElement).closest('.video-stage');
+    stage?.classList.toggle('playing');
+    const copy = stage?.querySelector('.video-copy p');
+    if (copy) copy.textContent = stage?.classList.contains('playing') ? 'Video placeholder active — connect your final film here.' : 'Our story film is coming soon.';
+  });
+</script>
+
+<style>
+  .home-hero{min-height:clamp(640px,76vh,900px);display:grid;align-items:center;position:relative;isolation:isolate;border-bottom:1px solid var(--gold);background:url('/images/hero-cane-corso.png') 62% center/cover no-repeat;overflow:hidden}.home-hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#020202 0%,#020202ea 22%,#0202027e 50%,transparent 75%),linear-gradient(0deg,#020202aa,transparent 35%)}.hero-content{width:min(50%,700px);margin-left:max(2rem,calc((100% - var(--content))/2));padding:5rem 0}.hero-content .display-title{font-size:clamp(3rem,6vw,6.7rem)}.hero-content p{max-width:590px;color:#e5dfd5;font-size:clamp(.95rem,1.4vw,1.15rem)}.hero-content .hero-lead{color:var(--gold-pale);font:500 clamp(1rem,2vw,1.35rem)/1.4 var(--font-display);letter-spacing:.08em}.hero-content .button{margin-top:1.2rem}.hero-seal{position:absolute;right:clamp(1rem,3vw,3.5rem);bottom:1.5rem;width:clamp(120px,13vw,180px);filter:drop-shadow(0 10px 16px #000)}.hero-seal img{width:100%;height:auto}.home-stack{display:grid;gap:4px;padding-block:4px 0}.video-stage{position:relative;min-height:clamp(360px,48vw,650px);display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 45%,#251a0c 0,#080706 24%,#010101 65%)}.video-stage::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,#db9d2430 50%,transparent 80%);transform:translateX(-100%);transition:1.2s}.video-stage.playing::before{transform:translateX(100%)}.video-stage::after{content:"";position:absolute;inset:8%;opacity:.12;background:repeating-linear-gradient(90deg,transparent 0 8%,var(--gold) 8.2% 8.3%)}.play-button{z-index:2;width:90px;height:90px;display:grid;place-items:center;color:var(--gold-pale);border:2px solid var(--gold-bright);border-radius:50%;background:#050505cc;box-shadow:0 0 30px #c488223d;cursor:pointer;transition:.2s}.play-button:hover{transform:scale(1.08);background:#1c1205}.video-copy{position:absolute;left:clamp(1.5rem,5vw,5rem);bottom:clamp(1.5rem,4vw,4rem);z-index:2}.video-copy h2{margin:.2rem 0;font:500 clamp(1.6rem,3vw,3rem)/1.2 var(--font-display);color:var(--gold-pale)}.video-copy p{margin:0;color:#9b9388}.pillars{display:grid;grid-template-columns:repeat(4,1fr);background:#060606}.pillars article{position:relative;display:grid;justify-items:center;text-align:center;padding:2rem 1.35rem}.pillars h2{max-width:220px;color:var(--gold-pale);font:500 1.22rem/1.35 var(--font-display);text-transform:uppercase}.pillars p{max-width:230px;margin:0;color:#d1c9be;font-size:.88rem}.pillar-icon{height:58px;display:grid;place-items:center;color:var(--gold-bright);font-size:2.4rem}.pillar-icon.shield{width:52px;border:2px solid var(--gold);clip-path:polygon(50% 0,100% 18%,87% 76%,50% 100%,13% 76%,0 18%)}.divider{position:absolute;right:0;top:10%;bottom:10%;width:1px;background:linear-gradient(transparent,var(--gold),transparent)}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.feature-card{min-height:510px;display:grid;grid-template-rows:1fr auto;overflow:hidden;background:#050505}.card-visual{display:grid;place-items:center;position:relative;min-height:260px;background:radial-gradient(circle at 50% 40%,#8d601f40,transparent 23%),linear-gradient(145deg,#2a241a,#050505 58%)}.card-visual::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#050505,transparent 70%),repeating-radial-gradient(circle at 50% 100%,transparent 0 18px,#c3902520 19px 20px)}.card-visual span{position:relative;font:700 clamp(3rem,7vw,6rem)/1 var(--font-display);color:#c9973e25;text-shadow:0 0 50px var(--gold)}.puppies .card-visual span{font-size:6rem}.bloodlines .card-visual{background:radial-gradient(circle at 50% 50%,#a773263d,transparent 3%,#070707 30%),linear-gradient(120deg,#191713,#030303)}.card-body{text-align:center;padding:0 1.6rem 1.8rem}.card-body h2{margin:.4rem 0;color:var(--gold-pale);font:500 clamp(1.5rem,2.3vw,2.25rem)/1.2 var(--font-display)}.card-body p{min-height:3.2em;margin:.6rem auto 1.2rem;max-width:390px;color:#ded7cc}.mission-banner{min-height:390px;display:grid;grid-template-columns:240px 1fr 200px;gap:2rem;align-items:center;padding:2.2rem;background:radial-gradient(circle at 25% 50%,#35240950,transparent 25%),linear-gradient(90deg,#080705,#10100e 55%,#030303)}.mission-crest{display:grid;place-items:center}.mission-crest img{width:min(100%,220px);max-height:300px;object-fit:contain;filter:drop-shadow(0 10px 20px #000)}.mission-banner p{max-width:780px;color:#ded5c7}.centurion{align-self:end;color:var(--gold-pale);font-size:12rem;line-height:.8;opacity:.38;text-shadow:0 0 45px var(--gold)}
+  .breeding-standard{padding:clamp(2rem,5vw,4.5rem);background:radial-gradient(circle at 50% 0,#553a102e,transparent 34%),#070706}.breeding-standard>header{text-align:center;display:grid;justify-items:center;margin-bottom:2rem}.standard-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#745219}.standard-grid article{display:grid;grid-template-columns:auto 1fr;gap:1.2rem;padding:1.6rem;background:linear-gradient(145deg,#15130f,#060606 65%)}.standard-grid article>span{color:#d7a8454f;font:600 2.5rem/1 var(--font-display)}.standard-grid h3{margin:0;color:var(--gold-pale);font:500 1rem/1.35 var(--font-display);text-transform:uppercase}.standard-grid p{margin:.5rem 0 0;color:#bbb2a5;font-size:.82rem}
+  .imperial-emblem{display:flex;align-items:center;justify-content:center;gap:clamp(.8rem,3vw,2.5rem);margin-bottom:1.8rem}.imperial-emblem>*:nth-child(2){transform:translateY(-12px)}
+  .pillar-icon :global(.site-heraldic-icon){--icon-size:92px}.pillar-icon{height:92px!important}.card-visual :global(.site-heraldic-icon){--icon-size:clamp(175px,21vw,270px);position:relative;z-index:2}.mission-banner :global(.site-heraldic-icon){--icon-size:175px;justify-self:center}
+  @media(max-width:900px){.home-hero{background-position:68% center}.home-hero::before{background:linear-gradient(90deg,#020202f5 0%,#020202d9 58%,#0202024d 100%)}.hero-content{width:70%}.hero-seal{width:105px;height:128px;opacity:.75}.hero-seal b{font-size:2rem}.pillars{grid-template-columns:repeat(2,1fr)}.pillars article:nth-child(2) .divider{display:none}.feature-grid{grid-template-columns:1fr}.feature-card{grid-template-columns:1fr 1fr;grid-template-rows:none;min-height:340px}.mission-banner{grid-template-columns:150px 1fr}.centurion{display:none}}
+  @media(max-width:600px){.home-hero{min-height:720px;background-position:80% center;align-items:end}.home-hero::before{background:linear-gradient(0deg,#020202 6%,#020202bd 48%,#02020224),linear-gradient(90deg,#020202b8 0%,#02020261 62%,transparent)}.hero-content{width:auto;margin:0;padding:4.5rem 1.25rem 3rem}.hero-seal{display:none}.video-stage{min-height:430px}.play-button{width:74px;height:74px}.pillars{grid-template-columns:1fr}.pillars article{padding:1.65rem}.divider{left:10%;right:10%;top:auto;bottom:0;width:auto;height:1px}.feature-card{grid-template-columns:1fr;grid-template-rows:220px auto}.mission-banner{grid-template-columns:1fr;padding:1.5rem}.mission-crest{justify-content:start}.mission-crest img{width:150px}.standard-grid{grid-template-columns:1fr}.standard-grid article{padding:1.25rem}.home-stack{width:calc(100% - .8rem)}}
+  .home-hero{background-image:url('/images/hero-cane-corso-crisp-v9.png')!important}
+  .hero-seal{background:transparent!important;isolation:auto!important}
+  .hero-seal img{mix-blend-mode:normal;filter:contrast(1.08) drop-shadow(0 10px 12px #000)}
+  .home-hero .display-title{display:grid;justify-items:start;gap:.05em}
+  .home-hero .display-title span{display:block;white-space:nowrap}
+  .home-hero .gold-rule{width:min(100%,520px);height:26px;margin:.65rem 0 .85rem;background:linear-gradient(45deg,transparent 39%,#d6a84f 40% 46%,#080706 47% 53%,#d6a84f 54% 60%,transparent 61%) center/18px 18px no-repeat,linear-gradient(90deg,transparent,#8d6428 12%,#d6a84f 45%,transparent 45% 55%,#d6a84f 55%,#8d6428 88%,transparent) center/100% 1px no-repeat;filter:drop-shadow(0 2px 3px #000)}
+  .home-hero .gold-rule::before,.home-hero .gold-rule::after,.home-hero .gold-rule i{display:none!important}
+  .pillars,.feature-card,.feature-card .card-body,.mission-banner,.breeding-standard{
+    background-color:#080706!important;
+    background-image:linear-gradient(145deg,#17130db0,#020202c8 72%),url('/images/near-black-stone-texture.png')!important;
+    background-repeat:no-repeat,repeat!important;
+    background-size:100% 100%,920px 75px!important;
+    background-position:center,center!important;
+    background-blend-mode:normal,screen!important;
+  }
+  .feature-card .card-visual{
+    background-image:radial-gradient(circle at 50% 42%,#8e5d1d32,transparent 34%),linear-gradient(#0807069c,#020202ba),url('/images/near-black-stone-texture.png')!important;
+    background-repeat:no-repeat,no-repeat,repeat!important;
+    background-size:100% 100%,100% 100%,920px 75px!important;
+  }
+</style>
+<style>
+  .video-stage-blank{display:block!important;background:#000!important;isolation:isolate}
+  .home-stack .video-stage-blank::before,.home-stack .video-stage-blank::after{display:none!important;content:none!important;background:none!important}
+  .mission-banner{grid-template-columns:240px minmax(0,1fr)!important}
+  .mission-banner .section-title::before,.mission-banner .section-title::after{display:none!important;content:none!important;background:none!important}
+  .mission-banner :global(.mission-emblem){display:none!important}
+  @media(max-width:900px){.mission-banner{grid-template-columns:150px minmax(0,1fr)!important}}
+  @media(max-width:600px){.mission-banner{grid-template-columns:1fr!important}}
+  .feature-card .card-visual{background:radial-gradient(circle at 50% 43%,#7a4e1c2b 0,transparent 38%),linear-gradient(145deg,#17130d,#050505 72%)!important}
+  .feature-card .card-visual::before{background:linear-gradient(180deg,transparent 58%,#050505 100%)!important}
+  .feature-card.bloodlines .card-visual{background:radial-gradient(circle at 50% 43%,#8d5b2030 0,transparent 40%),linear-gradient(145deg,#18140d,#040404 72%)!important}
+</style>
+<style>
+  .home-stack{gap:14px;padding-block:14px 0}
+  .home-stack :global(.gold-frame){border:0;outline:1px solid #5d3a0d;box-shadow:inset 0 0 0 2px #d09a3b,inset 0 0 0 5px #211506,inset 0 0 0 6px #8f6424,inset 0 0 45px #000,0 12px 35px #000}
+  .home-stack :global(.gold-frame)::before,.home-stack :global(.gold-frame)::after{width:92px;height:92px;border:0;clip-path:none;opacity:1;background:url('/images/heraldry/assets/helmet-corner-left.png') left top/contain no-repeat;filter:drop-shadow(0 3px 3px #000);z-index:5}
+  .home-stack :global(.gold-frame)::before{left:-3px;top:-3px}
+  .home-stack :global(.gold-frame)::after{right:-3px;bottom:-3px;transform:rotate(180deg)}
+  .home-stack :global(.gold-frame)>*{position:relative;z-index:1}
+  .video-stage{margin:4px}
+  .home-stack .video-stage::before{content:"";position:absolute;inset:12px;width:auto;height:auto;left:12px;top:12px;border:0;clip-path:none;opacity:.65;z-index:0;background:linear-gradient(120deg,transparent 20%,#db9d2430 50%,transparent 80%);filter:none;transform:translateX(-110%);transition:transform 1.2s}
+  .home-stack .video-stage.playing::before{transform:translateX(110%)}
+  .home-stack .video-stage::after{content:"";position:absolute;inset:14px;width:auto;height:auto;right:14px;bottom:14px;border:1px solid #74521b;clip-path:none;opacity:.6;z-index:0;transform:none;background:linear-gradient(var(--gold),var(--gold)) left top/42px 2px no-repeat,linear-gradient(var(--gold),var(--gold)) left top/2px 42px no-repeat,linear-gradient(var(--gold),var(--gold)) right bottom/42px 2px no-repeat,linear-gradient(var(--gold),var(--gold)) right bottom/2px 42px no-repeat;filter:none;pointer-events:none}
+  .video-stage{isolation:isolate;background:radial-gradient(circle at 50% 44%,#75501d4d 0,transparent 17%),radial-gradient(circle at 50% 48%,#21170c 0,#080706 42%,#010101 78%)}
+  .video-stage .video-guardians{position:absolute;inset:2.7rem clamp(1.5rem,6vw,6rem);z-index:1;display:flex;align-items:center;justify-content:space-between;pointer-events:none;opacity:.56}
+  .video-stage .video-guardians :global(.site-heraldic-icon){--icon-size:clamp(170px,20vw,290px);--icon-safe-area:8%;flex:0 0 auto;filter:grayscale(.18) drop-shadow(0 12px 18px #000)}
+  .video-stage .video-guardians :global(.site-heraldic-icon:last-child){transform:scaleX(-1)}
+  .video-stage .play-button{position:absolute;left:50%;top:39%;transform:translate(-50%,-50%);z-index:4;width:112px;height:112px;border:4px double #e0aa48;background:radial-gradient(circle,#563710 0,#160e05 48%,#030303 72%);box-shadow:inset 0 0 0 7px #080604,inset 0 0 26px #c68a273d,0 0 0 1px #5d3c12,0 0 35px #d4943257}
+  .video-stage .play-button:hover{transform:translate(-50%,-50%) scale(1.08)}
+  .video-stage .play-button::before{content:"";position:absolute;inset:-29px;border:1px solid #98702a;border-radius:50%;background:repeating-conic-gradient(from 0deg,#bc8525 0 1deg,transparent 1deg 15deg);opacity:.45;-webkit-mask:radial-gradient(circle,transparent 57%,#000 59%);mask:radial-gradient(circle,transparent 57%,#000 59%)}
+  .video-stage .video-copy{left:50%;bottom:clamp(2.1rem,5vw,4.5rem);width:min(calc(100% - 3rem),680px);transform:translateX(-50%);padding:1.1rem 2rem 1.25rem;text-align:center;background:linear-gradient(90deg,transparent,#0b0805e8 12%,#151008f2 50%,#0b0805e8 88%,transparent);border-block:1px solid #79571e}
+  .video-stage .video-copy h2{margin:.15rem 0 .25rem;text-shadow:0 2px #000,0 0 15px #b47728}.video-stage .video-copy p{color:#d5bb79!important;margin:.25rem 0 0;text-transform:uppercase;letter-spacing:.13em;font-size:.7rem}
+  .video-divider{width:min(82%,520px);height:24px;margin:.15rem auto;background:linear-gradient(45deg,transparent 39%,#d6a84f 40% 46%,#080706 47% 53%,#d6a84f 54% 60%,transparent 61%) center/16px 16px no-repeat,linear-gradient(90deg,transparent,#8d6428 12%,#d6a84f 44%,transparent 44% 56%,#d6a84f 56%,#8d6428 88%,transparent) center/100% 1px no-repeat;filter:drop-shadow(0 2px 3px #000)}
+  .pillars{padding:20px 12px;background:radial-gradient(circle at 50% 0,#6e441a35,transparent 35%),linear-gradient(145deg,#17130b,#050505 65%)}
+  .feature-grid{gap:14px}
+  .feature-card{border:0!important;outline:1px solid #5d3a0d;box-shadow:inset 0 0 0 2px #d09a3b,inset 0 0 0 5px #211506,inset 0 0 0 6px #8f6424,0 14px 35px #000!important}
+  .feature-card::before,.feature-card::after{width:76px!important;height:76px!important;border:0!important;clip-path:none!important;background:url('/images/heraldry/assets/helmet-corner-left.png') left top/contain no-repeat!important;opacity:1!important;z-index:5!important}
+  .feature-card::before{left:-2px!important;top:-2px!important}.feature-card::after{right:-2px!important;bottom:-2px!important;transform:rotate(180deg)}
+  .feature-card .card-visual{min-height:300px;background:radial-gradient(circle at 50% 42%,#8e5d1d38,transparent 34%),linear-gradient(145deg,#18130b,#040404 68%)}
+  .feature-card .card-visual::before{background:linear-gradient(180deg,transparent 58%,#050505 100%)}
+  .feature-card .card-visual::after{content:"";position:absolute;inset:16px;border:1px solid #8d641f;background:linear-gradient(var(--gold),var(--gold)) left top/34px 2px no-repeat,linear-gradient(var(--gold),var(--gold)) left top/2px 34px no-repeat,linear-gradient(var(--gold),var(--gold)) right bottom/34px 2px no-repeat,linear-gradient(var(--gold),var(--gold)) right bottom/2px 34px no-repeat;pointer-events:none}
+  .feature-card .card-visual :global(.site-heraldic-icon){--icon-size:clamp(175px,21vw,270px);--icon-safe-area:8%;position:relative;z-index:2;filter:drop-shadow(0 16px 13px #000) drop-shadow(0 0 14px #ba7e2c4d)}
+  .feature-card .card-body{padding:1.7rem 1.6rem 2rem;background:linear-gradient(180deg,#171008,#050505);border-top:3px double #a67528}
+  .feature-card .card-body h2{width:max-content;max-width:100%;margin:-2.65rem auto .9rem;padding:.55rem 1.7rem;position:relative;z-index:3;background:linear-gradient(#3d210c,#0a0603);border:2px double #c28b31;clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 50%,calc(100% - 8px) 100%,8px 100%,0 50%);text-shadow:0 2px #000,0 0 10px #c5862b}
+  .feature-card .card-body p{min-height:4em}.feature-card .button{border:2px double #c28b31;background:linear-gradient(180deg,#2f1c0a,#080503);box-shadow:inset 0 0 18px #a96b223b}
+  @media (min-width:601px) and (max-width:900px){
+    .feature-card{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;grid-template-rows:380px!important;min-height:380px!important}
+    .feature-card .card-visual,.feature-card .card-body{width:100%;height:100%;min-width:0;box-sizing:border-box}
+    .feature-card .card-visual{min-height:0!important}
+    .feature-card .card-body{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.4rem!important;border-top:0;border-left:3px double #a67528}
+    .feature-card .card-body h2{width:auto;max-width:calc(100% - 1rem);margin:0 auto .9rem;text-align:center}
+    .feature-card .card-body p{min-height:0;margin:.5rem auto 1.2rem}
+    .feature-card .button{max-width:100%;white-space:normal;text-align:center}
+  }
+  .mission-banner :global(.mission-emblem){width:175px;justify-self:center}.mission-banner .section-title::after{width:360px}.mission-banner p{font-size:.9rem;line-height:1.8}
+  .mission-banner .mission-crest{background:transparent!important;isolation:auto!important}
+  .mission-banner .mission-crest img{mix-blend-mode:normal;filter:contrast(1.08) drop-shadow(0 10px 12px #000)}
+  .mission-banner{padding:3.4rem 3rem}
+  .breeding-standard{padding:clamp(3rem,6vw,5.5rem);background:radial-gradient(circle at 50% 0,#553a102e,transparent 34%),linear-gradient(145deg,#17120a,#050505 62%)}
+  /* One treatment at every viewport: no breakpoint gaps, gradients, glows, or blend haze. */
+  .feature-grid .feature-card .card-visual,
+  .feature-grid .feature-card.bloodlines .card-visual{
+    background-color:#080706!important;
+    background-image:url('/images/near-black-stone-texture.png')!important;
+    background-repeat:repeat!important;
+    background-size:920px 75px!important;
+    background-position:center!important;
+    background-blend-mode:normal!important;
+  }
+  .feature-grid .feature-card .card-visual::before,
+  .feature-grid .feature-card.bloodlines .card-visual::before{
+    content:none!important;
+    display:none!important;
+    background:none!important;
+  }
+  .feature-grid .feature-card .card-visual :global(.site-heraldic-icon){filter:none!important}
+  .feature-grid .feature-card .card-visual :global(.site-heraldic-icon img){
+    mix-blend-mode:normal!important;
+    filter:saturate(.9) contrast(1.08) drop-shadow(0 5px 4px #000)!important;
+  }
+  @media(max-width:600px){
+    .home-hero{
+      background-image:url('/images/hero-cane-corso-crisp-v9.png')!important;
+      background-position:77% center!important;
+      background-size:cover!important;
+    }
+    .home-hero::before{background:linear-gradient(0deg,#0202028f 0%,#02020238 18%,transparent 34%),linear-gradient(90deg,#020202b8 0%,#0202026b 35%,#0202021a 49%,transparent 57%)!important}
+    .home-stack :global(.gold-frame)::before,.home-stack :global(.gold-frame)::after{width:58px;height:58px}.home-stack{gap:10px;padding-block:10px 0}.pillars{padding:12px 5px}.mission-banner{padding:2.2rem 1.5rem}.video-stage .video-guardians{inset:2rem .4rem;opacity:.28}.video-stage .video-guardians :global(.site-heraldic-icon){--icon-size:120px;--icon-safe-area:9%}.video-stage .play-button{top:35%;width:88px;height:88px}.video-stage .video-copy{bottom:1.8rem;padding:.8rem 1rem}.video-divider{height:24px}
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeraldicIcon from '../components/HeraldicIcon.astro';
+import PageIntroduction from '../components/PageIntroduction.astro';
+
+const labels = [
+  'Strength in stillness',
+  'The Custos standard',
+  'Purposeful beginnings',
+  'At home with family',
+  'Legacy in motion',
+  'Built with balance',
+];
+
+const icons = ['guardian', 'champion', 'heritage', 'paw', 'athletic', 'fortress'];
+---
+
+<Layout title="Gallery">
+  <PageIntroduction title="Gallery" subtitle="An Inside Look at Custos Fidelis" id="gallery-title" />
+
+  <section class="content-section section-shell">
+    <div class="gallery-grid">
+      {labels.map((label, index) =>
+        <figure class:list={['panel', 'roman-scroll-frame', { wide: index === 0 || index === 5 }]}>
+          <div><HeraldicIcon name={icons[index]} label={label} /></div>
+          <figcaption>{label}</figcaption>
+        </figure>
+      )}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .gallery-grid figure { margin: 0; padding: .55rem; }
+  .gallery-grid figure.wide { grid-column: span 2; }
+  .gallery-grid figure div {
+    aspect-ratio: 4/3;
+    display: grid;
+    place-items: center;
+    background: #050505 url('/images/near-black-stone-texture.png') center/520px auto repeat;
+  }
+  .gallery-grid :global(.site-heraldic-icon) { --icon-size: clamp(150px, 22vw, 260px); }
+  figcaption { padding: .8rem; color: var(--gold-pale); font-family: var(--font-display); }
+
+  .roman-scroll-frame { position: relative; isolation: isolate; overflow: hidden; }
+  .roman-scroll-frame > * { position: relative; z-index: 1; }
+
+  @media (max-width: 700px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-grid figure.wide { grid-column: auto; }
+  }
+</style>

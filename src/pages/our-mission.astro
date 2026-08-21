@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeraldicAsset from '../components/HeraldicAsset.astro';
+import HeraldicIcon from '../components/HeraldicIcon.astro';
+import { breedingHighlights, structuralCommitment } from '../data/site';
+const romanNumerals = ['I','II','III','IV','V','VI','VII','VIII'];
+const shieldMotifs = ['champion','eagle','heritage','fortress','science','athletic','paw','guardian'];
+---
+<Layout title="Our Mission">
+  <section class="mission-poster" aria-labelledby="mission-page-title"><h1 id="mission-page-title" class="sr-only">Our Mission</h1><img src="/images/mission-page-poster.png" alt="Custos Fidelis Our Mission artwork featuring three Cane Corsos, AKC Champion banners, Roman architecture, and worldwide bloodline symbolism" width="1024" height="1536" fetchpriority="high" /></section>
+  <section class="content-section section-shell mission-copy roman-scroll-frame">
+    <div class="commitment-copy"><div class="commitment-icon"><HeraldicIcon name="paw" label="Strength, sound structure, and powerful movement" /></div><span class="eyebrow">Our commitment</span><h2 class="section-title">Built on a Powerful Foundation</h2><div class="commitment-rule" aria-hidden="true"><i></i></div><p>{structuralCommitment}</p></div>
+  </section>
+  <section class="section-shell highlight-grid" aria-label="Our breeding principles">
+    {breedingHighlights.map((item,index) => <article class="principle-card roman-scroll-frame"><div class:list={['clean-crest',`crest-${index+1}`]} aria-hidden="true"><span class="motif-window"><HeraldicIcon name={shieldMotifs[index]} /></span><b>{romanNumerals[index]}</b></div><div><h2>{item.title}</h2><p>{item.text}</p></div></article>)}
+  </section>
+  <section class="content-section section-shell three-paths gold-frame" aria-labelledby="three-paths-title">
+    <header><span class="eyebrow">The Custos Fidelis difference</span><h2 id="three-paths-title" class="section-title">Three Bloodlines. Three Levels of Preparation.</h2><p>We develop three purposeful bloodlines and three training levels—from family obedience to advanced control and specialized protection. The right temperament and preparation make this powerful breed approachable for first-time owners, families, and seniors.</p></header>
+    <div class="path-grid">
+      <article class="roman-scroll-frame"><div class="training-crest"><HeraldicIcon name="champion"/><b>I</b></div><h3>Foundation Companion</h3><p>Socialization, manners, confidence, and essential obedience for a stable family companion and natural guardian.</p></article>
+      <article class="roman-scroll-frame"><div class="training-crest"><HeraldicIcon name="athletic"/><b>II</b></div><h3>Advanced Obedience Guardian</h3><p>Reliable control, environmental confidence, and advanced obedience for greater everyday capability.</p></article>
+      <article class="roman-scroll-frame"><div class="training-crest"><HeraldicIcon name="guardian"/><b>III</b></div><h3>Elite Protection Prepared</h3><p>Advanced obedience with professionally directed offensive and defensive protection for suitable dogs and owners.</p></article>
+    </div>
+    <div class="welcome-message"><HeraldicAsset name="loyalty-medallion"/><div><h3>Power Made Approachable</h3><p>A Cane Corso should inspire confidence, not intimidation. We match temperament and training to the owner—helping first-time owners, families, and seniors find a responsive companion and dependable guardian for a world of changing threats.</p></div></div>
+  </section>
+  <section class="content-section section-shell"><div class="grid-3 mission-final"><article class="panel roman-scroll-frame"><div class="panel-icon"><HeraldicIcon name="champion" label="Preserve and improve" /></div><h2>Preserve & Improve</h2><p>Protect ancient breed type while advancing health, structure, temperament, and working ability.</p></article><article class="panel roman-scroll-frame"><div class="panel-icon"><HeraldicIcon name="athletic" label="Mass with mobility" /></div><h2>Mass with Mobility</h2><p>Heavy bone and sound joints support massive frames without sacrificing agility.</p></article><article class="panel roman-scroll-frame"><div class="panel-icon"><HeraldicIcon name="guardian" label="Protection for modern life" /></div><h2>Protection for Modern Life</h2><p>Stable temperament and tailored training prepare dependable guardians for today’s changing world.</p></article></div></section>
+</Layout>
+<style>
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.mission-poster{width:100%;display:flex;justify-content:center;padding:clamp(.4rem,2vw,1.5rem);border-bottom:1px solid var(--gold);background:radial-gradient(circle at 50% 30%,#5f3e1228,transparent 45%),#020202}.mission-poster img{width:min(100%,1024px);height:auto;border:1px solid #8a621e;box-shadow:0 20px 70px #000}
+  .mission-copy{display:grid;grid-template-columns:180px 1fr 180px;gap:clamp(1.5rem,4vw,4rem);align-items:center;margin-block:clamp(2rem,5vw,4rem);padding:clamp(2.2rem,5vw,4rem);background:radial-gradient(circle at 50% 30%,#6d431832,transparent 40%),linear-gradient(145deg,#18120a,#040404 68%);box-shadow:inset 0 0 0 3px #130d05,inset 0 0 0 5px #9a6a24,0 18px 50px #000}.mission-copy :global(.heraldic-asset){width:175px}.commitment-copy{text-align:center}.commitment-copy .section-title::after{margin-inline:auto}.commitment-copy>p{max-width:900px;margin:1.2rem auto 0;color:#e7dfd2;font:400 clamp(1rem,1.7vw,1.25rem)/1.9 var(--font-body)}
+  .highlight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}.principle-card{position:relative;display:grid;grid-template-columns:150px 1fr;gap:1.4rem;align-items:center;min-height:230px;padding:1.6rem 1.8rem;outline:1px solid #553810;background:radial-gradient(circle at 12% 50%,#6f431b32,transparent 30%),linear-gradient(145deg,#17120b,#050505 70%);box-shadow:inset 0 0 0 2px #c08b33,inset 0 0 0 5px #1b1106,inset 0 0 0 6px #75501c,0 12px 30px #000;overflow:hidden}.principle-card::before,.principle-card::after{content:"";position:absolute;width:64px;height:64px;background:url('/images/heraldry/assets/helmet-corner-left.png') left top/contain no-repeat}.principle-card::before{left:-2px;top:-2px}.principle-card::after{right:-2px;bottom:-2px;transform:rotate(180deg)}.principle-crest{position:relative;display:grid;place-items:center}.principle-crest :global(.heraldic-asset){width:130px;max-height:145px}.principle-crest>span{position:absolute;bottom:-9px;min-width:56px;padding:.26rem .55rem;border:2px double #bc8525;background:#160d05;color:#f1d486;font:600 .72rem/1 var(--font-display);letter-spacing:.12em;text-align:center;clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 50%,calc(100% - 8px) 100%,8px 100%,0 50%)}.principle-card h2{margin:0 0 .65rem;font:600 1.05rem/1.35 var(--font-display);text-transform:uppercase;letter-spacing:.06em}.principle-card p{margin:0;font-size:.82rem;line-height:1.75}
+  .three-paths{margin-top:clamp(3rem,7vw,6rem);padding:clamp(2rem,5vw,4rem);background:radial-gradient(circle at 50% 0,#76491a38,transparent 35%),linear-gradient(145deg,#17110a,#030303 70%);box-shadow:inset 0 0 0 3px #130d05,inset 0 0 0 5px #9a6a24,0 18px 50px #000}.three-paths>header{text-align:center;max-width:980px;margin:0 auto 2.5rem}.three-paths>header .section-title::after{margin-inline:auto}.three-paths>header p{font-size:.92rem;line-height:1.85}.path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.path-grid article{position:relative;padding:1.5rem;text-align:center;border:2px double #9a6a24;background:linear-gradient(180deg,#1c140a,#050505);box-shadow:inset 0 0 25px #000}.path-grid :global(.heraldic-asset){width:150px;height:165px;margin:auto}.path-grid article>span{display:block;width:max-content;margin:-1rem auto .75rem;padding:.3rem .9rem;border:2px double #bc8525;background:#160d05;font:600 .8rem/1 var(--font-display)}.path-grid h3,.welcome-message h3{margin:.3rem 0 .7rem;font:600 1rem/1.4 var(--font-display);text-transform:uppercase}.path-grid p,.welcome-message p{margin:0;font-size:.8rem;line-height:1.8}.welcome-message{display:grid;grid-template-columns:130px 1fr;gap:1.5rem;align-items:center;margin-top:1.25rem;padding:1.5rem 2rem;border:1px solid #7f5920;background:linear-gradient(90deg,#291707,#0a0704 28%,#050505)}.welcome-message :global(.heraldic-asset){width:120px}
+  @media(max-width:850px){.mission-copy{grid-template-columns:120px 1fr 120px}.mission-copy :global(.heraldic-asset){width:120px}.highlight-grid{grid-template-columns:1fr}.path-grid{grid-template-columns:1fr}.path-grid article{display:grid;grid-template-columns:135px 1fr;column-gap:1rem;text-align:left}.path-grid article>:not(.heraldic-asset){grid-column:2}.path-grid article>span{margin:-3rem 0 .75rem}}@media(max-width:600px){.mission-poster{padding:.35rem}.mission-copy{grid-template-columns:1fr;padding:2rem 1.2rem}.mission-copy :global(.heraldic-asset){width:105px;margin:auto}.mission-copy>:last-child{display:none}.principle-card{grid-template-columns:105px 1fr;padding:1.3rem 1rem;gap:.8rem}.principle-crest :global(.heraldic-asset){width:95px}.principle-card::before,.principle-card::after{width:45px;height:45px}.three-paths{padding:2rem 1rem}.path-grid article{display:block;text-align:center}.path-grid article>span{margin:-1rem auto .75rem}.welcome-message{grid-template-columns:1fr;text-align:center;padding:1.3rem}.welcome-message :global(.heraldic-asset){margin:auto}}
+</style>
+
+<style>
+  /* Icon-only presentation: the heraldic artwork stands on its own without a second shield. */
+  .clean-crest,
+  .training-crest {
+    width: 126px !important;
+    height: 126px !important;
+    min-width: 126px !important;
+    margin: 0 auto 1rem !important;
+    padding: 0 0 28px !important;
+    border: 0 !important;
+    clip-path: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .clean-crest .motif-window {
+    width: 92px !important;
+    height: 92px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+
+  .clean-crest .motif-window :global(.heraldic-asset) {
+    width: 126px !important;
+    height: 126px !important;
+  }
+
+  .clean-crest > b,
+  .training-crest > b {
+    display: block !important;
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 0 !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: 38px !important;
+    padding: .2rem .45rem !important;
+    border: 0 !important;
+    border-top: 1px solid #b77b2c !important;
+    border-bottom: 1px solid #b77b2c !important;
+    border-radius: 0 !important;
+    clip-path: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #e6bd68 !important;
+  }
+
+  .training-crest {
+    background-repeat: no-repeat !important;
+    background-position: center 0 !important;
+    background-size: 98px 98px !important;
+  }
+
+  @media (max-width: 600px) {
+    .clean-crest,
+    .training-crest {
+      width: 92px !important;
+      height: 104px !important;
+      min-width: 92px !important;
+      padding-bottom: 24px !important;
+    }
+
+    .clean-crest .motif-window {
+      width: 76px !important;
+      height: 76px !important;
+    }
+
+    .clean-crest .motif-window :global(.heraldic-asset) {
+      width: 104px !important;
+      height: 104px !important;
+    }
+
+    .training-crest {
+      background-size: 80px 80px !important;
+    }
+  }
+</style>
+<style>
+  .training-crest b{position:absolute!important;bottom:8px!important;width:auto!important;height:auto!important;min-width:58px!important;padding:.3rem .55rem!important;border-radius:0!important;font-size:.68rem!important;clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 50%,calc(100% - 8px) 100%,8px 100%,0 50%)!important}
+  @media(max-width:600px){.training-crest{background-size:86px 98px!important}.training-crest b{bottom:5px!important;min-width:48px!important;font-size:.56rem!important}}
+</style>
+<style>
+  .clean-crest .motif-window{position:relative;display:grid!important;place-items:center!important;width:82px!important;height:82px!important;border:3px double #d09a3c!important;border-radius:50%!important;background:#080604!important;overflow:hidden!important;box-shadow:inset 0 0 0 4px #080604,0 0 15px #b97c3040!important}.clean-crest .motif-window :global(.heraldic-asset){width:118px!important;max-width:none!important;height:118px!important;object-fit:contain!important;filter:none!important}.clean-crest>b{display:block!important;position:absolute!important;z-index:4!important;bottom:7px!important;min-width:54px!important;padding:.28rem .5rem!important;background:#130b04!important;border:2px double #d09a3c!important;color:#f2d38c!important;font:600 .67rem/1 var(--font-display)!important;letter-spacing:.12em!important;text-align:center!important;clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 50%,calc(100% - 8px) 100%,8px 100%,0 50%)!important}.clean-crest>span:not(.motif-window){display:none!important}
+  @media(max-width:600px){.clean-crest .motif-window{width:60px!important;height:60px!important}.clean-crest .motif-window :global(.heraldic-asset){width:88px!important;height:88px!important}.clean-crest>b{bottom:5px!important;min-width:45px!important;font-size:.55rem!important}}
+</style>
+<style>
+  .clean-crest::before,.clean-crest::after,.training-crest::before,.training-crest::after{display:none!important;content:none!important}.clean-crest>b,.crest-crown,.crest-symbol,.crest-laurel,.training-symbol{display:none!important}.clean-crest>span{display:grid;place-items:center;width:74px;height:74px;border:4px double #d09a3c;border-radius:50%;background:radial-gradient(circle,#70471c 0,#160d05 52%,#040302 74%);color:#f2d38c;font:700 1.35rem/1 var(--font-display);letter-spacing:.08em;box-shadow:inset 0 0 0 5px #090604,0 0 16px #d0933d45}.training-crest b{position:static!important;display:grid!important;place-items:center!important;width:88px!important;height:88px!important;min-width:0!important;padding:0!important;border:4px double #d19b3e!important;border-radius:50%!important;background:radial-gradient(circle,#75491d,#160d05 54%,#030302 75%)!important;clip-path:none!important;font-size:1.4rem!important;box-shadow:inset 0 0 0 6px #080504,0 0 18px #c58a3845}.clean-crest,.training-crest{place-items:center!important}
+  @media(max-width:600px){.clean-crest>span{width:56px;height:56px;font-size:1rem}.training-crest b{width:66px!important;height:66px!important;font-size:1.05rem!important}}
+</style>
+<style>
+  .training-crest{--training-enamel:#42100f;position:relative;width:154px;height:178px;display:grid;place-items:center;margin:0 auto 1rem;color:#f1cb78;background:radial-gradient(circle at 50% 34%,#9b622b40,transparent 30%),linear-gradient(145deg,#ffffff0b,transparent 45%),var(--training-enamel);border:4px double #d19b3e;clip-path:polygon(50% 0,94% 10%,90% 67%,76% 84%,50% 100%,24% 84%,10% 67%,6% 10%);box-shadow:inset 0 0 0 6px #080504,inset 0 0 34px #000,0 12px 18px #000}.training-crest.obedience{--training-enamel:#111c28}.training-crest.protection{--training-enamel:#112116}.training-crest::before{content:"♛";position:absolute;top:24px;font-size:1.3rem;text-shadow:0 2px #000}.training-crest::after{content:"❧";position:absolute;bottom:40px;font:700 2.6rem/1 Georgia,serif;transform:rotate(45deg);opacity:.88}.training-symbol{font:700 3.2rem/1 Georgia,serif;text-shadow:0 2px #000,0 0 11px #d09239}.training-crest b{position:absolute;z-index:4;bottom:10px;min-width:62px;height:auto!important;padding:.34rem .65rem;border:2px double #d19b3e;background:#130b04;font:600 .72rem/1 var(--font-display);letter-spacing:.14em;text-align:center;clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 50%,calc(100% - 8px) 100%,8px 100%,0 50%)}
+  .path-grid article{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}.path-grid article>.training-crest,.path-grid article>h3,.path-grid article>p{grid-column:auto!important}.path-grid article>h3{width:100%}.path-grid article>p{width:100%}.path-grid article>span{display:none!important}
+  @media(max-width:850px){.path-grid article{display:grid!important;grid-template-columns:170px minmax(0,1fr)!important;grid-template-rows:auto 1fr!important;text-align:left!important;align-items:center!important}.path-grid article>.training-crest{grid-column:1!important;grid-row:1/3!important}.path-grid article>h3,.path-grid article>p{grid-column:2!important}.path-grid article>h3{place-items:start!important;min-height:0!important}.training-crest{width:135px;height:156px}}
+  @media(max-width:600px){.path-grid article{display:flex!important;text-align:center!important}.training-crest{width:115px;height:134px}.training-symbol{font-size:2.35rem}.training-crest::before{top:18px;font-size:1rem}.training-crest::after{bottom:31px;font-size:2rem}.training-crest b{bottom:7px;min-width:50px;font-size:.6rem}}
+</style>
+<style>
+  .clean-crest{--enamel:#42100f;position:relative;width:126px;height:146px;display:grid;place-items:center;margin:auto;color:#f0c76e;background:radial-gradient(circle at 50% 34%,#a0632538,transparent 32%),linear-gradient(145deg,#ffffff0b,transparent 40%),var(--enamel);border:3px double #cf993b;clip-path:polygon(50% 0,94% 11%,90% 67%,77% 84%,50% 100%,23% 84%,10% 67%,6% 11%);box-shadow:inset 0 0 0 5px #090604,inset 0 0 28px #000,0 8px 14px #000}.clean-crest.crest-2,.clean-crest.crest-6{--enamel:#101b25}.clean-crest.crest-3,.clean-crest.crest-7{--enamel:#321016}.clean-crest.crest-4,.clean-crest.crest-8{--enamel:#102015}.crest-crown{position:absolute;top:18px;font-size:1.1rem;text-shadow:0 2px #000}.crest-symbol{font:700 2.5rem/1 Georgia,serif;text-shadow:0 2px #000,0 0 10px #ca8d37}.crest-laurel{position:absolute;bottom:30px;font:700 2.2rem/1 Georgia,serif;transform:rotate(45deg);opacity:.9}.clean-crest b{position:absolute;z-index:3;bottom:7px;min-width:54px;padding:.28rem .5rem;background:#130b04;border:2px double #d09a3c;font:600 .67rem/1 var(--font-display);letter-spacing:.12em;text-align:center;clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 50%,calc(100% - 8px) 100%,8px 100%,0 50%)}
+  .principle-card{grid-template-columns:150px minmax(0,1fr)!important}.principle-card .principle-crest{display:none!important}
+  @media(max-width:600px){.clean-crest{width:94px;height:112px}.crest-symbol{font-size:1.8rem}.crest-crown{top:14px;font-size:.82rem}.crest-laurel{bottom:24px;font-size:1.6rem}.clean-crest b{bottom:5px;min-width:45px;font-size:.55rem}.principle-card{grid-template-columns:105px minmax(0,1fr)!important}}
+</style>
+<style>
+  .three-paths>header .section-title::before,.three-paths>header .section-title::after{display:none!important}.three-paths>header .section-title{max-width:980px;margin:.35rem auto 0;font-size:clamp(1.65rem,4vw,3.35rem)!important;line-height:1.14!important;padding-inline:1rem}.three-paths>header::after{content:"";display:block;width:min(80%,440px);height:1px;margin:1.2rem auto 1.7rem;background:linear-gradient(90deg,transparent,#bc8525 30%,#f0c66d 50%,#bc8525 70%,transparent)}
+  .principle-crest,.path-grid article{isolation:isolate}.principle-crest :global(.heraldic-asset),.path-grid :global(.heraldic-asset){object-fit:contain}.principle-card:nth-child(2) .principle-crest,.principle-card:nth-child(6) .principle-crest,.principle-card:nth-child(7) .principle-crest{overflow:hidden;border-radius:50%}.principle-card:nth-child(2) .principle-crest :global(.heraldic-asset),.principle-card:nth-child(6) .principle-crest :global(.heraldic-asset),.principle-card:nth-child(7) .principle-crest :global(.heraldic-asset){width:118px!important}.path-grid article>span{z-index:3}.path-grid h3{min-height:2.8em;display:grid;place-items:center}.path-grid p{font-size:.78rem!important;line-height:1.75!important}
+</style>
+<style>
+  .commitment-crest{width:140px;height:160px;display:grid;place-items:center;overflow:hidden;clip-path:polygon(50% 2%,93% 10%,90% 70%,75% 87%,50% 100%,25% 87%,10% 70%,7% 10%)}.commitment-crest :global(.heraldic-asset){width:158px!important;max-width:none!important;margin:0!important}.commitment-copy .section-title{max-width:850px!important;margin:.25rem auto 0!important;font-size:clamp(1.55rem,3.25vw,2.9rem)!important;line-height:1.16!important;padding-inline:1rem!important}.commitment-copy .section-title::after{display:none!important}.commitment-rule{display:flex;align-items:center;gap:.7rem;width:min(84%,480px);margin:1rem auto .3rem}.commitment-rule::before,.commitment-rule::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,#bc8525)}.commitment-rule::after{transform:scaleX(-1)}.commitment-rule i{width:13px;height:13px;border:2px double #d3a244;transform:rotate(45deg);background:#160e05;box-shadow:0 0 8px #bc852566}.mission-copy .commitment-copy>p{width:min(92%,820px)!important;max-width:820px!important;font-family:var(--font-body)!important;font-size:clamp(.78rem,1.25vw,.98rem)!important;line-height:1.85!important;letter-spacing:.025em!important;text-transform:none!important}
+  @media(max-width:700px){.commitment-copy .section-title{font-size:clamp(1.35rem,6vw,2rem)!important;padding-inline:.25rem!important}.mission-copy .commitment-copy>p{width:100%!important;font-size:.82rem!important;text-align:left!important}.commitment-crest{width:112px;height:128px}.commitment-crest :global(.heraldic-asset){width:126px!important}}
+</style>
+<style>
+  .mission-copy{display:block!important}.commitment-copy{display:grid;justify-items:center;text-align:center}.commitment-copy :global(.heraldic-asset){width:128px;margin:0 auto .7rem}.commitment-copy .eyebrow{display:block}.commitment-copy .section-title{width:100%;text-align:center}.commitment-copy .section-title::before{display:none}.commitment-copy .section-title::after{margin:.55rem auto 0}.commitment-copy>p{max-width:900px;margin:1.2rem auto 0}
+  .principle-card::before,.principle-card::after{display:none!important}
+  .roman-scroll-frame{position:relative;isolation:isolate;overflow:hidden;background-image:url('/images/heraldry/assets/roman-scroll-corner-tl.png'),url('/images/heraldry/assets/roman-scroll-corner-tr.png'),url('/images/heraldry/assets/roman-scroll-corner-bl.png'),url('/images/heraldry/assets/roman-scroll-corner-br.png')!important;background-repeat:no-repeat!important;background-size:72px 81px!important;background-position:left top,right top,left bottom,right bottom!important}.roman-scroll-frame::before,.roman-scroll-frame::after{display:none!important}.roman-scroll-frame>*{position:relative;z-index:1}.mission-final .roman-scroll-frame{background-size:58px 65px!important}
+  @media(max-width:600px){.commitment-copy :global(.heraldic-asset){width:105px}.roman-scroll-frame{background-size:48px 54px!important}}
+  .mission-copy .commitment-copy{display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important;max-width:1100px!important;margin-inline:auto!important}
+  .mission-copy .commitment-copy>p{display:block!important;width:min(100%,980px)!important;max-width:980px!important;margin:1.25rem auto 0!important;padding-inline:clamp(.25rem,2vw,1.5rem)!important;column-count:auto!important;columns:auto!important;writing-mode:horizontal-tb!important;white-space:normal!important;text-align:center!important;overflow-wrap:anywhere!important;word-break:normal!important}
+  .mission-copy,.commitment-copy,.principle-card,.principle-card>div,.three-paths,.path-grid article,.welcome-message{min-width:0;max-width:100%}.commitment-copy .section-title{font-size:clamp(1.65rem,4vw,3.6rem)!important;line-height:1.14!important;overflow-wrap:anywhere}.principle-card h2,.path-grid h3,.welcome-message h3,.principle-card p,.path-grid p,.welcome-message p{overflow-wrap:anywhere}.roman-scroll-frame{background-image:url('/images/heraldry/assets/roman-scroll-corner-tl.png?v=4'),url('/images/heraldry/assets/roman-scroll-corner-tr.png?v=4'),url('/images/heraldry/assets/roman-scroll-corner-bl.png?v=4'),url('/images/heraldry/assets/roman-scroll-corner-br.png?v=4')!important}
+  @media(max-width:900px){.mission-copy .commitment-copy>p{font-size:clamp(.82rem,1.8vw,1rem)!important;line-height:1.8!important}.commitment-copy .section-title{font-size:clamp(1.45rem,5vw,2.7rem)!important}.principle-card{grid-template-columns:minmax(95px,130px) minmax(0,1fr)!important}}
+  @media(max-width:600px){.mission-copy .commitment-copy>p{width:100%!important;padding-inline:.25rem!important;text-align:left!important;font-size:.92rem!important;line-height:1.8!important}}
+</style>
+<style>
+  .motif-window :global(.site-heraldic-icon){--icon-size:100%;--icon-safe-area:7%;width:100%!important;height:100%!important}
+  .training-crest{background-image:none!important;background-color:transparent!important;background-position:center!important;background-size:contain!important}
+  .training-crest :global(.site-heraldic-icon){--icon-size:98px;--icon-safe-area:8%;position:absolute;top:0;left:50%;transform:translateX(-50%)}
+  @media(max-width:600px){.training-crest :global(.site-heraldic-icon){--icon-size:80px}}
+  .commitment-icon{display:grid;place-items:center;width:160px;height:160px;margin:0 auto .4rem;overflow:hidden}.commitment-icon :global(.site-heraldic-icon){--icon-size:150px;--icon-safe-area:10%}
+  @media(max-width:700px){.commitment-icon{width:125px;height:125px}.commitment-icon :global(.site-heraldic-icon){--icon-size:118px}}
+  .clean-crest .motif-window img{display:block;width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain;mix-blend-mode:screen;filter:saturate(.8) contrast(1.08)}
+  .clean-crest,.training-crest{position:relative!important;width:126px!important;height:126px!important;min-width:126px!important;margin:0 auto 1rem!important;padding:0 0 28px!important;border:0!important;clip-path:none!important;background-color:transparent!important;box-shadow:none!important;overflow:visible!important}
+  .clean-crest .motif-window{width:116px!important;height:98px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important}
+  .clean-crest .motif-window :global(.heraldic-asset){width:126px!important;height:126px!important;max-width:none!important}
+  .clean-crest>b,.training-crest>b{display:block!important;position:absolute!important;left:50%!important;bottom:0!important;transform:translateX(-50%)!important;width:auto!important;height:auto!important;min-width:38px!important;padding:.2rem .45rem!important;border:0!important;border-top:1px solid #b77b2c!important;border-bottom:1px solid #b77b2c!important;border-radius:0!important;clip-path:none!important;background:transparent!important;box-shadow:none!important;color:#e6bd68!important;font-size:.68rem!important}
+  .training-crest{background-repeat:no-repeat!important;background-position:center 0!important;background-size:98px 98px!important}
+  @media(max-width:600px){.clean-crest,.training-crest{width:92px!important;height:104px!important;min-width:92px!important;padding-bottom:24px!important}.clean-crest .motif-window{width:88px!important;height:76px!important}.clean-crest .motif-window img{width:100%!important;height:100%!important}.training-crest{background-size:80px 80px!important}}
+</style>

@@ -1,0 +1,6 @@
+---
+interface Props { name: string; label?: string; class?: string; }
+const { name, label = '', class: className = '' } = Astro.props;
+---
+<img class:list={['heraldic-asset', className]} src={`/images/heraldry/assets/${name}.png?v=4`} alt={label} aria-hidden={label ? undefined : 'true'} loading="lazy" />
+<style>.heraldic-asset{display:block;width:clamp(88px,9vw,138px);height:auto;object-fit:contain;filter:drop-shadow(0 8px 8px #000) drop-shadow(0 0 8px #b87d2838)}</style>

@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const dogs = [
+  {
+    name: 'Vader',
+    role: 'Elite Cane Corso',
+    image: '/images/dogs/vader.png',
+    text: 'Imported from one of the world’s premier Cane Corso breeding centers, Vader is the son of an AKC Grand Champion bred by a world-renowned master breeder. Incredibly loving and calm, yet laser-focused when protection is required, his commanding, regal presence and unmatched genetics make him a cornerstone of our breeding program.',
+  },
+  {
+    name: 'Luna',
+    role: 'Elite Cane Corso',
+    image: '/images/dogs/luna.png',
+    text: 'Imported from one of the world’s premier Cane Corso breeding centers, Luna is the daughter of an AKC Bronze Grand Champion bred by a world-renowned master breeder. Loving and fiercely loyal to her family, she is all business when protection is required. Her exceptional genetics form the foundation of our elite-tier protection bloodlines.',
+  },
+  {
+    name: 'Saxon',
+    role: 'Elite Cane Corso',
+    image: '/images/dogs/saxon.png',
+    text: 'World-class South American and European bloodlines come together in Saxon, locking in unparalleled bone structure with exceptional head and body size rarely seen in females. Her adoring, loving temperament is matched by intense defensive instincts, creating an extraordinary balance of devoted companion and formidable guardian.',
+  },
+  {
+    name: 'Glacier',
+    role: 'Elite Cane Corso',
+    image: '/images/dogs/glacier.png',
+    text: 'Highly refined domestic and European bloodlines come together in Glacier, a true sentinel developed for advanced offensive and defensive protection. She combines commanding power with agility reminiscent of a Belgian Malinois. Incredibly affectionate and attentive, she remains deeply connected to her family while maintaining constant awareness and readiness to protect.',
+  },
+];
+---
+
+<Layout title="Our Dogs">
+  <div class="dogs-page-tagline">Built to protect. Bred to belong.</div>
+  <section class="content-section section-shell dogs-intro">
+    <h2 class="section-title">The Custos Fidelis Standard</h2>
+    <p class="prose">Massive, stable, and functional—bred to preserve the Cane Corso legacy and improve every generation.</p>
+  </section>
+
+  <section class="section-shell dog-showcase" aria-label="Custos Fidelis dogs">
+    {dogs.map((dog, index) =>
+      <article class="dog-card gold-frame">
+        <div class="dog-image">
+          <img src={dog.image} alt={`${dog.name}, ${dog.role} at Custos Fidelis Cane Corso`} width="1536" height="1024" loading={index === 0 ? 'eager' : 'lazy'} />
+        </div>
+        <div class="dog-caption">
+          <p>{dog.text}</p>
+        </div>
+      </article>
+    )}
+  </section>
+
+</Layout>
+
+<style>
+  .dogs-page-tagline {
+    width:min(calc(100% - 2rem),var(--content));
+    margin:.85rem auto 0;
+    color:var(--gold-pale);
+    text-align:center;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font:600 clamp(.9rem,1.45vw,1.12rem)/1.3 var(--font-display);
+  }
+  .dogs-intro > .section-title::before {
+    content: none !important;
+    display: none !important;
+  }
+  .dogs-intro > .section-title::after { content: none !important; display: none !important; }
+  .dogs-intro { padding-top:clamp(2rem,4vw,3.25rem); padding-bottom:2.5rem; text-align:center; }
+  .dogs-intro > .prose { margin:1rem auto 0; }
+  .dog-showcase{display:grid;gap:1.25rem}.dog-card{overflow:hidden;background:#050505}.dog-image{position:relative;aspect-ratio:3/2;background:#080807}.dog-image::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 50px #000}.dog-image img{width:100%;height:100%;object-fit:contain}.dog-caption{display:flex;align-items:center;justify-content:center;min-height:0;padding:.7rem clamp(.85rem,2vw,1.5rem);border-top:1px solid #684a17;text-align:center}.dog-caption p{margin:0;color:#c9c0b3;max-width:850px;font-size:.84rem;line-height:1.55}
+  @media(max-width:700px){.dog-image{aspect-ratio:auto}.dog-image img{height:auto}.dog-caption{display:block;padding:.65rem .75rem;text-align:center}.dog-caption p{font-size:.76rem;line-height:1.45;padding:.15rem .25rem .1rem}.dog-caption h2{font-size:1.35rem}.dog-caption .eyebrow{font-size:.52rem}}
+</style>

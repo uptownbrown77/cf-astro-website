@@ -1,0 +1,124 @@
+:root{--black:#030303;--charcoal:#10100f;--charcoal-soft:#191714;--gold:#bc8525;--gold-bright:#e7ae3b;--gold-pale:#f1d486;--cream:#f3eee4;--muted:#b8afa0;--font-display:'Cinzel',Georgia,serif;--font-body:'Cinzel',Georgia,serif;--content:1380px}
+html.nav-open{overflow:hidden}
+body :where(h1,h2,h3,h4,h5,h6,p,li,label,small,figcaption,nav a,footer a){color:var(--gold-pale)!important}
+body :where(input,textarea,select){color:var(--gold-pale)!important}
+body a.waitlist-btn{color:#160e02!important}
+.gold-frame,.panel{position:relative;isolation:isolate}
+.gold-frame::before,.gold-frame::after,.panel::before,.panel::after{content:"";position:absolute;width:18px;height:18px;pointer-events:none;z-index:3;opacity:.85}
+.gold-frame::before,.panel::before{left:5px;top:5px;border-left:1px solid var(--gold-bright);border-top:1px solid var(--gold-bright);clip-path:polygon(0 0,100% 0,100% 2px,6px 2px,6px 6px,2px 6px,2px 100%,0 100%)}
+.gold-frame::after,.panel::after{right:5px;bottom:5px;border-right:1px solid var(--gold-bright);border-bottom:1px solid var(--gold-bright);clip-path:polygon(100% 100%,0 100%,0 calc(100% - 2px),calc(100% - 6px) calc(100% - 2px),calc(100% - 6px) calc(100% - 6px),calc(100% - 2px) calc(100% - 6px),calc(100% - 2px) 0,100% 0)}
+.panel{background-image:radial-gradient(circle at 50% 0,#6b471425,transparent 38%),linear-gradient(145deg,#171510,#060606 60%),repeating-linear-gradient(45deg,#ffffff04 0 1px,transparent 1px 7px)}
+.panel>h2:first-child,.panel>h3:first-child{display:flex;align-items:center;gap:.65rem}.panel>h2:first-child::before,.panel>h3:first-child::before{content:"✦";display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;border:1px solid var(--gold);border-radius:50%;font-size:.65rem;box-shadow:inset 0 0 0 3px #070707,0 0 10px #bc85252e}
+.section-title::before{content:"";display:inline-block;width:.6em;height:.8em;margin-right:.3em;vertical-align:-.08em;border:1px solid var(--gold);clip-path:polygon(50% 0,100% 18%,87% 76%,50% 100%,13% 76%,0 18%);background:radial-gradient(circle,var(--gold) 0 15%,transparent 16%)}
+.gold-rule{max-width:560px}.gold-rule i{position:relative;box-shadow:0 0 8px #d89c30}.gold-rule i::before,.gold-rule i::after{content:"";position:absolute;width:14px;border-top:1px solid var(--gold);top:3px}.gold-rule i::before{right:10px}.gold-rule i::after{left:10px}
+.page-hero{position:relative;overflow:hidden}.page-hero::after{content:"";position:absolute;inset:12px;pointer-events:none;border:1px solid #8d641d55;background:linear-gradient(var(--gold),var(--gold)) left top/18px 1px no-repeat,linear-gradient(var(--gold),var(--gold)) left top/1px 18px no-repeat,linear-gradient(var(--gold),var(--gold)) right bottom/18px 1px no-repeat,linear-gradient(var(--gold),var(--gold)) right bottom/1px 18px no-repeat}
+.content-section>.eyebrow:first-child,.section-shell>.eyebrow:first-child{display:inline-flex;align-items:center;gap:.8rem}.content-section>.eyebrow:first-child::before,.section-shell>.eyebrow:first-child::before{content:"✦";display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--gold);border-radius:50%;background:radial-gradient(circle,#5a3b12,#070707 68%);box-shadow:inset 0 0 0 3px #050505,0 0 15px #b77a232e}
+.grid-3 .panel{padding-top:1.5rem;text-align:center;overflow:hidden}.grid-3 .panel>h2:first-child{display:block}.grid-3 .panel>h2:first-child::before{display:none}
+.dog-caption,.line-copy,.litter-copy,.card-body{position:relative}.dog-caption::before,.line-copy::before,.litter-copy::before,.card-body::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,transparent,var(--gold) 16%,var(--gold-bright) 50%,var(--gold) 84%,transparent);box-shadow:0 0 12px #d499323d}
+.feature-card,.dog-card,.line-card,.litter-card{box-shadow:inset 0 0 0 1px #2e200c,0 12px 36px #000!important}
+.site-footer{position:relative}.site-footer::before{content:"✦  CUSTOS FIDELIS  ✦";display:block;text-align:center;margin:-.6rem auto 1.7rem;color:var(--gold);font:500 .72rem/1 var(--font-display);letter-spacing:.35em}
+@media(max-width:600px){.roman-icon{width:76px;height:76px}.roman-icon::before{transform:translateY(-39px)}.roman-icon::after{transform:translateY(39px)}.roman-icon svg{width:43px;height:43px}}
+.roman-ribbon{position:relative;margin-top:1.15rem;padding:.25rem 1.1rem;color:var(--gold-pale);background:linear-gradient(90deg,transparent,#6e4618 18%,#191006 50%,#6e4618 82%,transparent);border-block:1px solid #9d7024;font:600 .56rem/1.3 var(--font-display);letter-spacing:.22em;text-transform:uppercase}.roman-ribbon::before,.roman-ribbon::after{content:"";position:absolute;top:50%;width:18px;border-top:1px solid var(--gold)}.roman-ribbon::before{right:100%}.roman-ribbon::after{left:100%}
+.pillars{background-image:radial-gradient(circle at 50% 0,#8c5a1e30,transparent 40%),linear-gradient(#0c0905,#020202)!important;border-block:3px double var(--gold-bright)!important}.pillars article{padding-block:2.6rem!important}.pillars article::before{content:"";position:absolute;inset:10px;background:linear-gradient(var(--gold),var(--gold)) left top/18px 1px no-repeat,linear-gradient(var(--gold),var(--gold)) left top/1px 18px no-repeat,linear-gradient(var(--gold),var(--gold)) right bottom/18px 1px no-repeat,linear-gradient(var(--gold),var(--gold)) right bottom/1px 18px no-repeat;opacity:.65;pointer-events:none}.pillars h2{text-shadow:0 1px #000,0 0 12px #d89a31}
+.feature-card .card-visual::after{content:"✦";position:absolute;inset:14px;border:1px solid #9c6e22;background:linear-gradient(var(--gold),var(--gold)) left top/28px 2px no-repeat,linear-gradient(var(--gold),var(--gold)) left top/2px 28px no-repeat,linear-gradient(var(--gold),var(--gold)) right bottom/28px 2px no-repeat,linear-gradient(var(--gold),var(--gold)) right bottom/2px 28px no-repeat;display:grid;place-items:end center;padding-bottom:1rem;color:var(--gold);font-size:1.3rem;pointer-events:none}
+@media(max-width:600px){.roman-ribbon{font-size:.48rem}.pillars article{padding-block:2rem!important}}
+.pillar-icon{height:auto!important;min-height:132px!important}.pillar-icon .heraldic-asset{width:118px}.litter-copy>.heraldic-asset{width:100px}.dog-caption>.heraldic-asset{width:125px}.line-copy>.heraldic-asset{width:145px;margin:-6.4rem auto .7rem}.page-hero{background-image:linear-gradient(90deg,#030303 15%,#070707c9 50%,#03030344),url('/images/hero-cane-corso.png')}.page-hero>div::after{content:"";display:block;width:min(100%,580px);height:26px;margin-top:.8rem;background:linear-gradient(45deg,transparent 39%,#d6a84f 40% 46%,#080706 47% 53%,#d6a84f 54% 60%,transparent 61%) center/18px 18px no-repeat,linear-gradient(90deg,transparent,#8d6428 12%,#d6a84f 45%,transparent 45% 55%,#d6a84f 55%,#8d6428 88%,transparent) center/100% 1px no-repeat;filter:drop-shadow(0 2px 3px #000)}.section-title{position:relative}.section-title::after{content:"";display:block;width:min(100%,430px);height:24px;margin-top:.45rem;background:linear-gradient(45deg,transparent 39%,#d6a84f 40% 46%,#080706 47% 53%,#d6a84f 54% 60%,transparent 61%) center/16px 16px no-repeat,linear-gradient(90deg,transparent,#8d6428 12%,#d6a84f 44%,transparent 44% 56%,#d6a84f 56%,#8d6428 88%,transparent) center/100% 1px no-repeat;filter:drop-shadow(0 2px 3px #000)}
+@media(max-width:700px){.pillar-icon{min-height:100px!important}.pillar-icon .heraldic-asset{width:88px}.dog-caption>.heraldic-asset,.line-copy>.heraldic-asset{width:105px}.line-copy>.heraldic-asset{margin:-4.5rem auto .5rem}}
+.grid-3 .panel{padding-top:1.5rem!important;text-align:center;overflow:hidden;border:2px solid #75521b}.grid-3 .panel::before,.grid-3 .panel::after{content:none!important;display:none!important}.grid-3 .panel h2::after{content:none!important;display:none!important}.panel-icon{display:grid;place-items:center;margin:0 auto .55rem}.panel-icon .site-heraldic-icon{--icon-size:96px;--icon-safe-area:4%}@media(max-width:600px){.panel-icon .site-heraldic-icon{--icon-size:82px}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--black);color:var(--cream);font-family:var(--font-body);font-weight:300;line-height:1.65;background-image:radial-gradient(circle at 50% -20%,#5c3d0c22,transparent 36%),repeating-linear-gradient(135deg,#ffffff05 0 1px,transparent 1px 8px)}img{max-width:100%;display:block}button,input,textarea,select{font:inherit}button,a{touch-action:manipulation}.skip-link{position:fixed;left:1rem;top:-5rem;z-index:100;padding:.75rem 1rem;background:var(--gold);color:#000}.skip-link:focus{top:1rem}.gold-frame{border:1px solid var(--gold);box-shadow:inset 0 0 0 1px #39280c,0 0 20px #000}.section-shell{width:min(calc(100% - 2rem),var(--content));margin-inline:auto}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.26em;font-size:.72rem;font-weight:600}.display-title{margin:.2rem 0;color:var(--gold-pale);font:500 clamp(2.25rem,6vw,5.5rem)/1.05 var(--font-display);text-shadow:0 2px 0 #402500,0 0 24px #d88c2c36}.section-title{color:var(--gold-pale);font:500 clamp(2rem,4vw,3.6rem)/1.15 var(--font-display);margin:0}.gold-rule{display:flex;align-items:center;gap:.65rem;width:min(100%,430px);margin:1rem 0}.gold-rule::before,.gold-rule::after{content:"";height:1px;flex:1;background:var(--gold)}.gold-rule i{width:8px;height:8px;border:1px solid var(--gold);transform:rotate(45deg)}.button{display:inline-flex;align-items:center;justify-content:center;gap:.8rem;min-height:50px;padding:.8rem 1.4rem;color:var(--gold-pale);text-decoration:none;text-transform:uppercase;letter-spacing:.08em;font:600 .78rem/1 var(--font-display);border:1px solid var(--gold);background:linear-gradient(180deg,#17130c,#070707);clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px),0 8px);box-shadow:inset 0 0 18px #8a5b102c;transition:.2s}.button:hover{color:#fff;background:#201506;box-shadow:inset 0 0 26px #9b65184a,0 0 15px #d18c292f;transform:translateY(-2px)}.page-hero{min-height:48vh;display:grid;place-items:end start;padding:clamp(6rem,12vw,10rem) max(1rem,calc((100% - var(--content))/2));background:linear-gradient(90deg,#030303 15%,#070707c9 50%,#03030344),url('/images/hero-cane-corso.png') center 42%/cover;border-bottom:1px solid var(--gold)}.page-hero>div{max-width:760px}.page-hero p{max-width:620px;color:#d8d0c2}.content-section{padding:clamp(4rem,8vw,7rem) 0}.prose{max-width:780px;color:#d1c9bb}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.panel{padding:clamp(1.3rem,3vw,2.3rem);border:1px solid #735319;background:linear-gradient(145deg,#171510,#060606 60%);box-shadow:inset 0 0 25px #000}.panel h2,.panel h3{font-family:var(--font-display);color:var(--gold-pale)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.field{display:grid;gap:.45rem}.field.full{grid-column:1/-1}.field label{color:var(--gold-pale);font-size:.78rem;text-transform:uppercase;letter-spacing:.12em}.field input,.field textarea,.field select{width:100%;color:#fff;background:#080808;border:1px solid #6c501d;padding:.9rem;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold-bright);box-shadow:0 0 0 3px #d7972928}.field textarea{min-height:150px;resize:vertical}.status-note{color:#908678;font-size:.75rem}
+@media(max-width:800px){.grid-3{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.page-hero{min-height:54vh;background-position:65% 50%;position:relative}.page-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#020202e8 10%,#030303a8 70%,transparent)}.page-hero>div{position:relative}}
+
+/* Site-wide near-black stone surface derived from the approved header banner. */
+html{background:#020202}
+:root{
+  --stone-texture:url('/images/near-black-stone-texture.png');
+  --stone-overlay:linear-gradient(145deg,rgba(18,15,11,.72),rgba(2,2,2,.84) 72%);
+  --stone-surface-color:#060605;
+  --stone-surface-image:var(--stone-overlay),var(--stone-texture);
+  --stone-surface-repeat:no-repeat,repeat;
+  --stone-surface-size:100% 100%,920px 75px;
+  --stone-surface-position:center,center;
+}
+body{
+  background-color:#030303;
+  background-image:
+    radial-gradient(circle at 50% -12%,#6a46101f 0,transparent 38%),
+    linear-gradient(#020202b8,#020202d2),
+    url('/images/near-black-stone-texture.png');
+  background-repeat:no-repeat,no-repeat,repeat;
+  background-position:center top,center,center top;
+  background-size:100% 720px,100% 100%,920px 75px;
+  background-attachment:scroll,fixed,fixed;
+}
+
+/* Carry the approved stone texture onto the visible dark surfaces that cover body. */
+main{
+  background-color:#030303;
+  background-image:
+    linear-gradient(#050505a8,#020202c2),
+    url('/images/near-black-stone-texture.png');
+  background-repeat:no-repeat,repeat;
+  background-size:100% 100%,920px 75px;
+  background-position:center,center top;
+}
+.content-section,
+.panel,
+.feature-card,
+.feature-card .card-body,
+.mission-banner,
+.pillars,
+.video-stage-blank,
+.site-footer{
+  background-color:#060605!important;
+  background-image:
+    linear-gradient(145deg,#17130db8,#020202d8 72%),
+    url('/images/near-black-stone-texture.png')!important;
+  background-repeat:no-repeat,repeat!important;
+  background-size:100% 100%,920px 75px!important;
+  background-position:center,center!important;
+  background-blend-mode:normal,normal!important;
+}
+.video-stage-blank{
+  background-image:
+    linear-gradient(#000000c7,#000000dc),
+    url('/images/near-black-stone-texture.png')!important;
+}
+
+/*
+ * Canonical dark-stone surface.
+ * Keep every editable content panel on this shared token so page-local gradients
+ * cannot drift away from the approved banner texture on any breakpoint.
+ */
+:where(
+  .panel,
+  .dog-caption,
+  .line-copy,
+  .litter-copy,
+  .card-body,
+  .mission-copy,
+  .commitment-copy,
+  .principle-card,
+  .three-paths,
+  .path-grid article,
+  .welcome-message,
+  .breeding-standard,
+  .mission-banner,
+  .waitlist-panel article,
+  .site-footer
+){
+  background-color:var(--stone-surface-color)!important;
+  background-image:var(--stone-surface-image)!important;
+  background-repeat:var(--stone-surface-repeat)!important;
+  background-size:var(--stone-surface-size)!important;
+  background-position:var(--stone-surface-position)!important;
+  background-blend-mode:normal,normal!important;
+}
+
+/* Decorative raster assets must remain clipped to their assigned design box. */
+.gold-rule,
+.video-divider,
+.section-title::after,
+.page-hero>div::after{
+  overflow:hidden!important;
+  background-clip:content-box!important;
+}

@@ -1,0 +1,72 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  id?: string;
+}
+
+const { title, subtitle, id = 'page-title' } = Astro.props;
+---
+
+<div class="page-tagline">Built to protect. Bred to belong.</div>
+<section class="page-introduction content-section section-shell" aria-labelledby={id}>
+  <h1 id={id}>{title}</h1>
+  <p>{subtitle}</p>
+</section>
+
+<style>
+  .page-tagline {
+    width: 100%;
+    padding: clamp(.65rem, 1.25vw, 1rem) 1rem;
+    border-bottom: 1px solid #80581e;
+    background: #050505 url('/images/near-black-stone-texture.png') center/520px auto repeat;
+    color: var(--gold-pale);
+    font: 600 clamp(.95rem, 1.55vw, 1.2rem)/1.35 var(--font-display);
+    letter-spacing: .13em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .page-introduction {
+    display: grid;
+    justify-items: center;
+    gap: .8rem;
+    margin-block: clamp(1.25rem, 3vw, 2.5rem) 0;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 5vw, 4rem);
+    text-align: center;
+    background-color: #050505;
+    background-image:
+      url('/images/heraldry/assets/roman-scroll-corner-tl.png'),
+      url('/images/heraldry/assets/roman-scroll-corner-tr.png'),
+      url('/images/heraldry/assets/roman-scroll-corner-bl.png'),
+      url('/images/heraldry/assets/roman-scroll-corner-br.png'),
+      url('/images/near-black-stone-texture.png');
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+    background-position: left top, right top, left bottom, right bottom, center;
+    background-size: 72px 81px, 72px 81px, 72px 81px, 72px 81px, 520px auto;
+    box-shadow: inset 0 0 0 2px #130d05, inset 0 0 0 4px #9a6a24, 0 18px 50px #000;
+  }
+
+  .page-introduction h1 {
+    margin: 0;
+    color: var(--gold-pale);
+    font: 500 clamp(2rem, 5vw, 4rem)/1.12 var(--font-display);
+    text-transform: uppercase;
+  }
+
+  .page-introduction p {
+    max-width: 780px;
+    margin: 0;
+    color: #e7dfd2;
+    font: 400 clamp(1rem, 1.8vw, 1.25rem)/1.6 var(--font-body);
+  }
+
+  @media (max-width: 700px) {
+    .page-tagline { font-size: .82rem; letter-spacing: .1em; }
+    .page-introduction {
+      margin-top: .65rem;
+      padding: 2.4rem 1.2rem;
+      background-size: 48px 54px, 48px 54px, 48px 54px, 48px 54px, 420px auto;
+    }
+  }
+</style>
