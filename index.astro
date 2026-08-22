@@ -14,42 +14,18 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-.hero {
-  min-height: clamp(640px, 76vh, 900px);
-  display: grid;
-  align-items: center;
-  position: relative;
-}
-.hero-home {
-  background-image: linear-gradient(145deg, #17130d, #020202 72%), url('/images/near-black-stone-texture.png') !important;
-  background-position: center center;
-  background-size: cover;
-  isolation: auto !important;
-}
-.hero-display-title {
-  display: grid;
-  justify-items: start;
-  gap: .85rem;
-}
-.hero-display-title span {
-  display: block;
-  white-space: nowrap;
-}
-.hero .gold-rule {
-  width: min(100%, 520px);
-  height: 26px;
-  margin: .65rem 0 .85rem;
-  background: linear-gradient(90deg, #17130d, #020202);
-}
-.hero .gold-rule::before,
-.hero-home .gold-rule::after,
-.hero-home .gold-rule i {
-  display: inline-block;
-}
-@media(max-width:900px) {
-  .hero-home { background-position: 68% center; }
-}
-@media(max-width:600px) {
-  .hero-home { min-height: 720px; background-position: 80% center; align-items: start; padding-top: 4rem; }
-}
+.hero{min-height:clamp(640px,76vh,900px);display:grid;align-items:center;position:relative}
+.breeding-standard{padding:clamp(2rem,5vw,4.5rem);background:radial-gradient(circle at 50% 0%, #1a1a1a, #0d0d0d)}
+.pillar-icon :global(.site-heraldic-icon){--icon-size:92px}.pillar-icon{height:92px!important;max-width:92px!important}
+@media(max-width:900px){.hero-home{background-position:68% center}}
+@media(max-width:600px){.hero-home{min-height:720px;background-position:80% center;align-items:start;padding-top:4rem}}
+.hero-home{background-image:url('/images/hero-cane-corso-contrast-v1.png')!important}
+.hero-home{background:transparent!important;isolation:auto!important}
+.hero-home img{mix-blend-mode:normal;filter:contrast(1.08) drop-shadow(0 10px 12px #000)}
+.hero-display-title{display:grid;justify-items:start;gap:.85rem}
+.hero-display-title span{display:block;white-space:nowrap}
+.hero .gold-rule{width:min(100%,520px);height:26px;margin:.65rem 0 .85rem;background:linear-gradient(90deg, #17130d, #020202)}
+.hero .gold-rule::before,.hero-home .gold-rule::after,.hero-home .gold-rule i{display:inline-block}
+.features,.feature-card,.feature-card .card-body,.mission-banner,.breeding-standard{background-color:#080706!important}
+.hero-home{background-image:linear-gradient(145deg, #17130d, #020202 72%), url('/images/near-black-stone-texture.png') !important; background-position: center center; background-size: cover; isolation: auto !important;}
 </style>
