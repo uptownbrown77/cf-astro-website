@@ -1,5 +1,5 @@
 ---
-// index.astro - Clean Homepage Slate
+// index.astro - Fully Restored Layout with Stone Background
 ---
 <html lang="en">
   <head>
@@ -7,7 +7,20 @@
     <meta name="viewport" content="width=device-width" />
     <title>Strength. Loyalty. Legacy.</title>
   </head>
-  <body>
+  <body class="site-body">
+    <!-- Restored Header & Navigation -->
+    <header class="site-header">
+      <nav class="nav-container">
+        <a href="/" class="nav-link">HOME</a>
+        <a href="/mission" class="nav-link">OUR MISSION</a>
+        <a href="/docs" class="nav-link">OUR DOCS</a>
+        <a href="/breeding" class="nav-link">BREEDING</a>
+        <a href="/litters" class="nav-link">LITTERS</a>
+        <a href="/gallery" class="nav-link">GALLERY</a>
+        <a href="/contact" class="nav-link">CONTACT</a>
+      </nav>
+    </header>
+
     <main class="hero hero-home">
       <div class="hero-display-title">
         <span>STRENGTH.</span>
@@ -20,6 +33,36 @@
 </html>
 
 <style>
+/* Global Dark Reset */
+:global(html), :global(body) {
+  margin: 0;
+  padding: 0;
+  background-color: #080706 !important;
+  font-family: system-ui, sans-serif;
+}
+
+/* Header & Nav Styling */
+.site-header {
+  background-color: rgba(8, 7, 6, 0.95);
+  border-bottom: 1px solid #1c1812;
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 10;
+}
+.nav-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* Hero Section with Stone Background */
 .hero {
   min-height: clamp(640px, 76vh, 900px);
   display: grid;
@@ -30,8 +73,11 @@
   background-image: linear-gradient(145deg, #17130d, #020202 72%), url('/images/near-black-stone-texture.png') !important;
   background-position: center center;
   background-size: cover;
+  background-repeat: no-repeat;
   isolation: auto !important;
 }
+
+/* Foreground Dog Image Layer */
 .hero::before {
   content: "";
   position: absolute;
@@ -40,10 +86,12 @@
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
   filter: contrast(1.08) drop-shadow(0 10px 12px #000000);
   pointer-events: none;
 }
+
+/* Typography & Layout Rules */
 .hero-display-title {
   display: grid;
   justify-items: start;
@@ -56,8 +104,8 @@
   white-space: nowrap;
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 900;
-  color: #d4af37;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.7);
+  color: #fff;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.9);
 }
 .hero .gold-rule {
   width: min(100%, 520px);
@@ -66,11 +114,13 @@
   background: linear-gradient(90deg, #d4af37, transparent);
   z-index: 2;
 }
+
+/* Responsive Scaling */
 @media(max-width:900px){
-  .hero::before{background-position: 68% center;}
+  .hero::before { background-position: 68% center; }
 }
 @media(max-width:600px){
-  .hero-home{min-height: 720px; align-items: start; padding-top: 4rem;}
-  .hero::before{background-position: 80% center;}
+  .hero-home { min-height: 720px; align-items: start; padding-top: 4rem; }
+  .hero::before { background-position: 80% center; }
 }
 </style>
