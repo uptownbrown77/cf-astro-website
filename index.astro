@@ -68,12 +68,18 @@ import { pillars, featureCards, missionStatement } from '../data/site';
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: linear-gradient(90deg, #020202 0%, #020202ea 22%, #0202027e 50%, transparent 75%), linear-gradient(0deg, #020202aa, transparent 35%);
+    background-image: url('images/hero-cane-corso-contrast-v1.png') !important;
+    background-position: 62% center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    mix-blend-mode: screen;
+    opacity: 0.85;
   }
   .hero-content {
     width: min(50%, 700px);
     margin-left: max(2rem, calc((100% - var(--content)) / 2));
     padding: 5rem 0;
+    z-index: 2;
   }
   .hero-content .display-title {
     font-size: clamp(3rem, 6vw, 6.7rem);
@@ -97,6 +103,7 @@ import { pillars, featureCards, missionStatement } from '../data/site';
     bottom: 1.5rem;
     width: clamp(120px, 13vw, 180px);
     filter: drop-shadow(0 10px 16px #000);
+    z-index: 2;
   }
   .hero-seal img {
     width: 100%;
